@@ -61,16 +61,16 @@ public class Room {
     
     public void goTo(){
         String input = scan.nextLine();
-        if(input.equalsIgnoreCase("north") && this.north >= 0){
-           pl.setRoom(this.north);
-        } else if(input.equalsIgnoreCase("south") && this.south >= 0){
-            pl.setRoom(this.south);
-        } else if (input.equalsIgnoreCase("east") && this.east >= 0){
-            pl.setRoom(this.east);
-        } else if (input.equalsIgnoreCase("west") && this.west >= 0){
-            pl.setRoom(this.west);
+        if(input.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0){
+           pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
+        } else if(input.equalsIgnoreCase("south") && rl.getRoomList().get(pl.getRoom()).south >= 0){
+            pl.setRoom(rl.getRoomList().get(pl.getRoom()).south);
+        } else if (input.equalsIgnoreCase("east") && rl.getRoomList().get(pl.getRoom()).east >= 0){
+            pl.setRoom(rl.getRoomList().get(pl.getRoom()).east);
+        } else if (input.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0){
+            pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
         } else {
-            ;
+            System.out.println("You can't choose that room");
         }
     }
     /**

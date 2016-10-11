@@ -22,6 +22,8 @@ public class Textadv01 {
         rl.createRooms();
         
         
-        System.out.println(rl.getRoomList().get(2).roomDirection());                     
+        System.out.println(rl.getRoomList().get(2).roomDirection());
+        room.goTo();
+        System.out.println(pl.getRoom());
     }
 }

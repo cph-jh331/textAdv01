@@ -12,7 +12,7 @@ public class Player {
     private int healthPotAmount = 3;
     private int potHeal = 25;
     private String name; 
-    private int room;
+    private int room = 2;
 
     /**
      * @return the health
