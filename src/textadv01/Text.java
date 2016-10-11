@@ -121,6 +121,7 @@ public class Text {
                 + "- look for gold: to look for gold\n"
                 + "- take gold: to take gold\n"
                 + "- inventory: to check inventory\n"
+                + "- help: to get commands\n"
                 + "");
     }
 

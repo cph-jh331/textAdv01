@@ -25,8 +25,8 @@ public class Textadv01 {
 //        room.goTo();
 //        System.out.println(pl.getRoom());
         st.roomDescription(pl.getRoom());
-        while (2 > 1) {
         st.whatToDo();
+        while (2 > 1) {
         st.enterText();
             switch (st.getInput()) {
                
@@ -47,6 +47,10 @@ public class Textadv01 {
                     
                 case "inventory":
                     st.checkInventory();
+                    break;
+                    
+                case "help":
+                    st.whatToDo();
                     break;
                     
                 default:
