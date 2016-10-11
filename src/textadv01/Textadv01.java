@@ -17,8 +17,8 @@ public class Textadv01 {
     public static void main(String[] args) {
         RoomList rl = new RoomList();
         Player pl = new Player();
-        Text st = new Text(rl);
         Room room = new Room(rl, pl);
+        Text st = new Text(rl, room);
         rl.createRooms();
         
         
@@ -32,8 +32,8 @@ public class Textadv01 {
         st.whatToDo();
         switch (st.getInput()){
             
-            case "move":
-                    room.roomDirection();
+            case "move":                    
+                    st.roomDir();
                     room.goTo();
                     
                         

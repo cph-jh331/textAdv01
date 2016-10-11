@@ -32,6 +32,10 @@ public class Room {
     private int south;
     private int east;
     private int west;
+    
+    public Room(){
+        
+    }
 
     public Room(String desc, int north, int south, int east, int west, int gold) {
         this.east = east;

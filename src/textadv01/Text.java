@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Text {
 
+    Room room;
     RoomList rl;
     Scanner scan = new Scanner(System.in);
     private String input;
@@ -18,8 +19,9 @@ public class Text {
 
     }
 
-    public Text(RoomList r) {
+    public Text(RoomList r, Room ro) {
         rl = r;
+        room = ro;
     }
     
     public void outDescOfRoom(String name, String roomDesc){
@@ -115,6 +117,10 @@ public class Text {
         System.out.println("What do you want to do?\n"
                 + "type move to move the next room\n"
                 + "");
+    }
+    
+    public void roomDir(){
+        System.out.println(room.roomDirection());
     }
 
     /**
