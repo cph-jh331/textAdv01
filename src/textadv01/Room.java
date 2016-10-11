@@ -60,8 +60,8 @@ public class Room {
     }
 
     public void goTo() {
-        String input = scan.nextLine();
         while (1 < 2) {
+            String input = scan.nextLine();
             if (input.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
                 break;
