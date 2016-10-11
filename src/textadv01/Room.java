@@ -32,9 +32,9 @@ public class Room {
     private int south;
     private int east;
     private int west;
-    
-    public Room(){
-        
+
+    public Room() {
+
     }
 
     public Room(String desc, int north, int south, int east, int west, int gold) {
@@ -66,7 +66,7 @@ public class Room {
 
     public void goTo() {
         while (1 < 2) {
-        String input = scan.nextLine();
+            String input = scan.nextLine();
             if (input.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
                 break;
@@ -84,7 +84,6 @@ public class Room {
             }
         }
     }
-    
 
     /**
      * @return the roomDesc

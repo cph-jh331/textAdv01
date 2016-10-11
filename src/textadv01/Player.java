@@ -6,12 +6,13 @@
 package textadv01;
 
 public class Player {
+
     private int health = 100;
     private int dmg;
     private int gold;
     private int healthPotAmount = 3;
     private int potHeal = 25;
-    private String name; 
+    private String name;
     private int room = 0;
 
     /**
@@ -97,7 +98,5 @@ public class Player {
     public void setRoom(int room) {
         this.room = room;
     }
-    
+
 }
-
-

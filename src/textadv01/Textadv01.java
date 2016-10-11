@@ -27,36 +27,37 @@ public class Textadv01 {
         st.roomDescription(pl.getRoom());
         st.whatToDo();
         while (2 > 1) {
-        st.enterText();
+            st.enterText();
             switch (st.getInput()) {
-               
+
                 case "move":
                     st.roomDir();
                     room.goTo();
                     st.roomDescription(pl.getRoom());
                     break;
-                    
+
                 case "look for gold":
                     st.goldCheck();
                     break;
-                    
+
                 case "take gold":
                     pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
                     rl.getRoomList().get(pl.getRoom()).setGold(0);
                     break;
-                    
+
                 case "inventory":
                     st.checkInventory();
                     break;
-                    
+
                 case "help":
                     st.whatToDo();
                     break;
                     
+                case "quit":
+                        return;
+
                 default:
                     st.invalid();
-                    
-                        
 
             }
         }

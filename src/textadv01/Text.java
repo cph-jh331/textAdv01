@@ -8,7 +8,7 @@ package textadv01;
 import java.util.Scanner;
 
 public class Text {
-    
+
     Player pl;
     Room room;
     RoomList rl;
@@ -122,21 +122,22 @@ public class Text {
                 + "- take gold: to take gold\n"
                 + "- inventory: to check inventory\n"
                 + "- help: to get commands\n"
+                + "- quit: to quit!\n"
                 + "");
     }
 
     public void roomDir() {
         System.out.println(room.roomDirection());
     }
-    
-    public void goldCheck(){
+
+    public void goldCheck() {
         System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold in this room");
     }
-    
-    public void checkInventory(){
+
+    public void checkInventory() {
         System.out.println("You currently have: " + pl.getGold() + " gold\n"
                 + "");
-        
+
     }
 
     /**
