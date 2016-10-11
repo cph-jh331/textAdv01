@@ -25,7 +25,7 @@ public class RoomList {
         //rum 1
         r = new Room("You have entered a dark room!\n"
                 + ""
-                + "You can walk North, South and East.", 3, 0, 2, -1, rand.randomGold());
+                + "", 3, 0, 2, -1, rand.randomGold());
         getRoomList().add(r);
         //rum 2
         r = new Room("You enter another dark room!\n"

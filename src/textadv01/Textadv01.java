@@ -49,6 +49,10 @@ public class Textadv01 {
                     st.checkInventory();
                     break;
                     
+                default:
+                    st.invalid();
+                    
+                        
 
             }
         }
