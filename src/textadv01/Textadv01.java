@@ -20,26 +20,21 @@ public class Textadv01 {
         Room room = new Room(rl, pl);
         Text st = new Text(rl, room);
         rl.createRooms();
-        
-        
+
 //        System.out.println(rl.getRoomList().get(2).roomDirection());
 //        room.goTo();
 //        System.out.println(pl.getRoom());
-        
-        
+        while (2 > 1) {
         st.roomDescription(pl.getRoom());
-        st.enterText();
         st.whatToDo();
-        switch (st.getInput()){
-            
-            case "move":                    
+        st.enterText();
+            switch (st.getInput()) {
+
+                case "move":
                     st.roomDir();
                     room.goTo();
-                    
-                        
-                    
-                   
-           
+
+            }
         }
     }
 }

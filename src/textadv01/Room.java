@@ -47,6 +47,7 @@ public class Room {
     }
 
     public String roomDirection() {
+        sb.delete(0, sb.length());
         sb.append("You can go: ");
         if (rl.getRoomList().get(pl.getRoom()).getNorth() >= 0) {
             sb.append("North,");

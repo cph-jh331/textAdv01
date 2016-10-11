@@ -23,13 +23,13 @@ public class Text {
         rl = r;
         room = ro;
     }
-    
-    public void outDescOfRoom(String name, String roomDesc){
+
+    public void outDescOfRoom(String name, String roomDesc) {
         System.out.println(name + roomDesc);
     }
 
     public void enterText() {
-        input = scan.nextLine();
+        input = scan.nextLine().toLowerCase();
     }
 
     public void roomDescription(int roomnr) {
@@ -67,17 +67,16 @@ public class Text {
     public void directionNotEastWest() {
         System.out.println("You can walk North and South.");
     }
-    
-    public void directionNotSouthEast(){
+
+    public void directionNotSouthEast() {
         System.out.println("You can walk North and West.");
     }
-    
-    public void directionNotNorthEast(){
+
+    public void directionNotNorthEast() {
         System.out.println("You can walk South and West");
     }
 
-    
-    public void directionNotNorthSouth(){
+    public void directionNotNorthSouth() {
         System.out.println("You can walk East and West.");
     }
 
@@ -96,30 +95,30 @@ public class Text {
     public void directionOnlyEast() {
         System.out.println("You can only walk East.");
     }
-    
+
     public void noExit() {
         System.out.println("There is no exit!!!");
     }
-    
-    public void askForName(){
+
+    public void askForName() {
         System.out.println("Please name youself...");
     }
-    
-    public void doorNotThere(){
+
+    public void doorNotThere() {
         System.out.println("There is no door there...");
     }
-    
-    public void invalid(){
+
+    public void invalid() {
         System.out.println("Invalid command...");
     }
-    
-    public void whatToDo(){
+
+    public void whatToDo() {
         System.out.println("What do you want to do?\n"
                 + "type move to move the next room\n"
                 + "");
     }
-    
-    public void roomDir(){
+
+    public void roomDir() {
         System.out.println(room.roomDirection());
     }
 
