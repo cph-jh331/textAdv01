@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textadv01;
 
-/**
- *
- * @author bloch
- */
 public class Textadv01 {
 
     /**
@@ -20,10 +11,21 @@ public class Textadv01 {
         Room room = new Room(rl, pl);
         Text st = new Text(rl, room, pl);
         rl.createRooms();
+        
+        st.textDivider();
+        while (true) {
+            st.intro();
+            st.enterName();
 
-//        System.out.println(rl.getRoomList().get(2).roomDirection());
-//        room.goTo();
-//        System.out.println(pl.getRoom());
+            if (!st.getInput().equals("")) {
+                pl.setName(st.getInput());
+                st.settedName();
+                break;
+            }
+
+        }
+        
+        st.textDivider();
         st.roomDescription(pl.getRoom());
         st.whatToDo();
         while (2 > 1) {
@@ -33,14 +35,17 @@ public class Textadv01 {
                 case "move":
                     st.roomDir();
                     room.goTo();
+                    st.textDivider();
                     st.roomDescription(pl.getRoom());
                     break;
 
                 case "look for gold":
+                    st.lookingForGold();
                     st.goldCheck();
                     break;
 
                 case "take gold":
+                    st.takesTheGold();
                     pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
                     rl.getRoomList().get(pl.getRoom()).setGold(0);
                     break;
@@ -52,9 +57,10 @@ public class Textadv01 {
                 case "help":
                     st.whatToDo();
                     break;
-                    
+
                 case "quit":
-                        return;
+                    st.quitting();
+                    return;
 
                 default:
                     st.invalid();

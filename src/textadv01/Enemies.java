@@ -13,7 +13,6 @@ public class Enemies {
     private int maxHealth = 80;
     private String[] names = {"Goat", "Bat", "Horse"};
     private String name;
-
     public void names() {
 
         name = names[rand.nextInt(names.length)];

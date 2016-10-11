@@ -5,10 +5,6 @@
  */
 package textadv01;
 
-/**
- *
- * @author bloch
- */
 public class Combat {
     
 }

@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package textadv01;
 
 import java.util.Scanner;
 
-/**
- *
- * @author bloch
- */
 public class Room {
 
     Text out = new Text();
@@ -50,16 +42,16 @@ public class Room {
         sb.delete(0, sb.length());
         sb.append("You can go: ");
         if (rl.getRoomList().get(pl.getRoom()).getNorth() >= 0) {
-            sb.append("North,");
+            sb.append("North...");
         }
         if (rl.getRoomList().get(pl.getRoom()).getSouth() >= 0) {
-            sb.append(" South,");
+            sb.append(" South...");
         }
         if (rl.getRoomList().get(pl.getRoom()).getEast() >= 0) {
-            sb.append(" East,");
+            sb.append(" East...");
         }
         if (rl.getRoomList().get(pl.getRoom()).getWest() >= 0) {
-            sb.append(" West");
+            sb.append(" West...");
         }
         return sb.toString();
     }

@@ -30,12 +30,37 @@ public class Text {
         System.out.println(name + roomDesc);
     }
 
+    public void enterName() {
+        input = scan.nextLine();
+    }
+
     public void enterText() {
         input = scan.nextLine().toLowerCase();
     }
 
+    public void textDivider() {
+        System.out.println("\n###################################################");
+    }
+
+    public void intro() {
+        System.out.println("While running from the evil people in the woods,\n"
+                + "you find yourself outside the entrance of a large barrow\n"
+                + " - You seem to have forgotten your name… what is it?\n");
+    }
+
+    public void settedName() {
+        System.out.println("\n" + pl.getName() + "...\n"
+                + " You are somewhat certain it is " + pl.getName() + ".\n"
+                + pl.getName() + " decides to enter the barrow to hide from\n"
+                + "the evil people in the woods.\n");
+    }
+
     public void roomDescription(int roomnr) {
-        System.out.println(rl.getRoomList().get(roomnr).getRoomDesc());
+        System.out.println(pl.getName() + rl.getRoomList().get(roomnr).getRoomDesc());
+    }
+
+    public void lookingForGold() {
+        System.out.println("\n" + pl.getName() + " starts looking around for gold...");
     }
 
     public void allDirections() {
@@ -103,7 +128,7 @@ public class Text {
     }
 
     public void askForName() {
-        System.out.println("Please name youself...");
+        System.out.println("Please name yourself...");
     }
 
     public void doorNotThere() {
@@ -127,17 +152,33 @@ public class Text {
     }
 
     public void roomDir() {
+        System.out.println("\n" + pl.getName() + " moves around the room to find out\n"
+                + "what direction one can go from here...");
         System.out.println(room.roomDirection());
     }
 
     public void goldCheck() {
-        System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold in this room");
+        System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold in this room\n");
+    }
+
+    public void takesTheGold() {
+        if (rl.getRoomList().get(pl.getRoom()).getGold() != 0) {
+            System.out.println("\n" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.\n");
+        } else {
+            System.out.println("\nThere is no gold here... that makes " + pl.getName() + " sad...\n");
+        }
     }
 
     public void checkInventory() {
-        System.out.println("You currently have: " + pl.getGold() + " gold\n"
+        System.out.println("\n" + pl.getName() + " currently have: " + pl.getGold() + " gold\n"
                 + "");
 
+    }
+    
+    public void quitting(){
+        System.out.println("\n" + pl.getName() + " have had enough and runs head first\n"
+                + "at full speed into a nearby wall,"
+                + "\nshattering the skull...");
     }
 
     /**
