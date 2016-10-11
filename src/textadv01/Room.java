@@ -44,16 +44,16 @@ public class Room {
 
     public String roomDirection() {
         sb.append("You can go: ");
-        if (this.north >= 0) {
+        if (rl.getRoomList().get(pl.getRoom()).getNorth() >= 0) {
             sb.append("North,");
         }
-        if (this.south >= 0) {
+        if (rl.getRoomList().get(pl.getRoom()).getSouth() >= 0) {
             sb.append(" South,");
         }
-        if (this.east >= 0) {
+        if (rl.getRoomList().get(pl.getRoom()).getEast() >= 0) {
             sb.append(" East,");
         }
-        if (this.west >= 0) {
+        if (rl.getRoomList().get(pl.getRoom()).getWest() >= 0) {
             sb.append(" West");
         }
         return sb.toString();
