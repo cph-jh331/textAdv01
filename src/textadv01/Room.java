@@ -12,67 +12,74 @@ import java.util.Scanner;
  * @author bloch
  */
 public class Room {
- Text out = new Text();
- RoomList rl;
- Player pl;
- 
- public Room(RoomList r, Player p){
-    rl = r;
-    pl = p;
-}
- StringBuilder sb = new StringBuilder();
- 
- Scanner scan = new Scanner(System.in);
+
+    Text out = new Text();
+    RoomList rl;
+    Player pl;
+
+    public Room(RoomList r, Player p) {
+        rl = r;
+        pl = p;
+    }
+    StringBuilder sb = new StringBuilder();
+
+    Scanner scan = new Scanner(System.in);
     // -1 er vores "null".
-    
+
     private String roomDesc;
     private int gold;
     private int north;
     private int south;
     private int east;
     private int west;
-    
-    
-    public Room (String desc, int north, int south, int east, int west, int gold){
+
+    public Room(String desc, int north, int south, int east, int west, int gold) {
         this.east = east;
         this.south = south;
         this.west = west;
         this.north = north;
         this.gold = gold;
-        this.roomDesc = desc;        
+        this.roomDesc = desc;
     }
 
-    public String roomDirection(){
+    public String roomDirection() {
         sb.append("You can go: ");
-        if(this.north >= 0){
+        if (this.north >= 0) {
             sb.append("North,");
         }
-        if(this.south >= 0){
+        if (this.south >= 0) {
             sb.append(" South,");
         }
-        if(this.east >= 0){
+        if (this.east >= 0) {
             sb.append(" East,");
         }
-        if(this.west >= 0){
+        if (this.west >= 0) {
             sb.append(" West");
         }
         return sb.toString();
     }
-    
-    public void goTo(){
+
+    public void goTo() {
         String input = scan.nextLine();
-        if(input.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0){
-           pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
-        } else if(input.equalsIgnoreCase("south") && rl.getRoomList().get(pl.getRoom()).south >= 0){
-            pl.setRoom(rl.getRoomList().get(pl.getRoom()).south);
-        } else if (input.equalsIgnoreCase("east") && rl.getRoomList().get(pl.getRoom()).east >= 0){
-            pl.setRoom(rl.getRoomList().get(pl.getRoom()).east);
-        } else if (input.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0){
-            pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
-        } else {
-            System.out.println("You can't choose that room");
+        while (1 < 2) {
+            if (input.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0) {
+                pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
+                break;
+            } else if (input.equalsIgnoreCase("south") && rl.getRoomList().get(pl.getRoom()).south >= 0) {
+                pl.setRoom(rl.getRoomList().get(pl.getRoom()).south);
+                break;
+            } else if (input.equalsIgnoreCase("east") && rl.getRoomList().get(pl.getRoom()).east >= 0) {
+                pl.setRoom(rl.getRoomList().get(pl.getRoom()).east);
+                break;
+            } else if (input.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0) {
+                pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
+                break;
+            } else {
+                out.doorNotThere();
+            }
         }
     }
+
     /**
      * @return the roomDesc
      */
