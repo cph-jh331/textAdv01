@@ -59,23 +59,22 @@ public class Room {
         return sb.toString();
     }
 
-    public boolean goTo(String where) {
+    public void goTo(String where) {
         while (1 < 2) {
             if (where.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
-                return true;
+                break;
             } else if (where.equalsIgnoreCase("south") && rl.getRoomList().get(pl.getRoom()).south >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).south);
-                return true;
+                break;
             } else if (where.equalsIgnoreCase("east") && rl.getRoomList().get(pl.getRoom()).east >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).east);
-                return true;
+                break;
             } else if (where.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
-                return true;
+                break;
             } else {
                 out.doorNotThere();
-                return false;
             }
         }
     }
