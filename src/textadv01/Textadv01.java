@@ -22,8 +22,17 @@ public class Textadv01 {
         rl.createRooms();
         
         
-        System.out.println(rl.getRoomList().get(2).roomDirection());
-        room.goTo();
-        System.out.println(pl.getRoom());
+//        System.out.println(rl.getRoomList().get(2).roomDirection());
+//        room.goTo();
+//        System.out.println(pl.getRoom());
+        
+        
+        st.roomDescription(pl.getRoom());
+        st.enterText();
+        switch (st.getInput()){
+            
+            case 
+           
+        }
     }
 }
