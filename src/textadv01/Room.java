@@ -59,23 +59,23 @@ public class Room {
         return sb.toString();
     }
 
-    public void goTo() {
+    public boolean goTo(String where) {
         while (1 < 2) {
-            String input = scan.nextLine();
-            if (input.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0) {
+            if (where.equalsIgnoreCase("north") && rl.getRoomList().get(pl.getRoom()).north >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).north);
-                break;
-            } else if (input.equalsIgnoreCase("south") && rl.getRoomList().get(pl.getRoom()).south >= 0) {
+                return true;
+            } else if (where.equalsIgnoreCase("south") && rl.getRoomList().get(pl.getRoom()).south >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).south);
-                break;
-            } else if (input.equalsIgnoreCase("east") && rl.getRoomList().get(pl.getRoom()).east >= 0) {
+                return true;
+            } else if (where.equalsIgnoreCase("east") && rl.getRoomList().get(pl.getRoom()).east >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).east);
-                break;
-            } else if (input.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0) {
+                return true;
+            } else if (where.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
-                break;
+                return true;
             } else {
                 out.doorNotThere();
+                return false;
             }
         }
     }
