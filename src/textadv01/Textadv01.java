@@ -29,9 +29,16 @@ public class Textadv01 {
         
         st.roomDescription(pl.getRoom());
         st.enterText();
+        st.whatToDo();
         switch (st.getInput()){
             
-            case 
+            case "move":
+                    room.roomDirection();
+                    room.goTo();
+                    
+                        
+                    
+                   
            
         }
     }

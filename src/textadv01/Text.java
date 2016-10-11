@@ -110,6 +110,12 @@ public class Text {
     public void invalid(){
         System.out.println("Invalid command...");
     }
+    
+    public void whatToDo(){
+        System.out.println("What do you want to do?\n"
+                + "type move to move the next room\n"
+                + "");
+    }
 
     /**
      * @return the input

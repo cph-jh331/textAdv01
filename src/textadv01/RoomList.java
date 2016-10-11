@@ -20,10 +20,7 @@ public class RoomList {
     //String desc, int north, int south, int east, int west, int gold
     //rum 0
         Room r = new Room("You stand in a doorway to a dungeon...\n" 
-                + "To go north, type north\n"
-                + "To go south, type south\n"
-                + "To go East, type east\n"
-                + "To go West, type west\n"
+                + "To go to the next room, type move\n"
                 + "You can only walk North"
                 + "", 1, -1, -1, -1, rand.randomGold());
         getRoomList().add(r);
