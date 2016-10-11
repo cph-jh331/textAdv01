@@ -16,15 +16,12 @@ public class Textadv01 {
      */
     public static void main(String[] args) {
         RoomList rl = new RoomList();
+        Player pl = new Player();
         Text st = new Text(rl);
-        Room room = new Room(rl, st);
+        Room room = new Room(rl, pl);
+        rl.createRooms();
         
         
-        while (false){
-            switch( );
-                    case:
-                        
-        }
+        System.out.println(rl.getRoomList().get(2).roomDirection());                     
     }
-    
 }

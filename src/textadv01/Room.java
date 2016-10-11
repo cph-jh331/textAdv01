@@ -5,12 +5,24 @@
  */
 package textadv01;
 
+import java.util.Scanner;
+
 /**
  *
  * @author bloch
  */
 public class Room {
  Text out = new Text();
+ RoomList rl;
+ Player pl;
+ 
+ public Room(RoomList r, Player p){
+    rl = r;
+    pl = p;
+}
+ StringBuilder sb = new StringBuilder();
+ 
+ Scanner scan = new Scanner(System.in);
     // -1 er vores "null".
     
     private String roomDesc;
@@ -30,14 +42,37 @@ public class Room {
         this.roomDesc = desc;        
     }
 
-    public void roomDirection(){
-    if (north <= 0 && south <=0 && east <= 0 && west <= 0){
-        out.allDirections();
-    } else if (north <=  ) {
-        
+    public String roomDirection(){
+        sb.append("You can go: ");
+        if(this.north >= 0){
+            sb.append("North,");
+        }
+        if(this.south >= 0){
+            sb.append(" South,");
+        }
+        if(this.east >= 0){
+            sb.append(" East,");
+        }
+        if(this.west >= 0){
+            sb.append(" West");
+        }
+        return sb.toString();
     }
-}   
-
+    
+    public void goTo(){
+        String input = scan.nextLine();
+        if(input.equalsIgnoreCase("north") && this.north >= 0){
+           pl.setRoom(this.north);
+        } else if(input.equalsIgnoreCase("south") && this.south >= 0){
+            pl.setRoom(this.south);
+        } else if (input.equalsIgnoreCase("east") && this.east >= 0){
+            pl.setRoom(this.east);
+        } else if (input.equalsIgnoreCase("west") && this.west >= 0){
+            pl.setRoom(this.west);
+        } else {
+            ;
+        }
+    }
     /**
      * @return the roomDesc
      */

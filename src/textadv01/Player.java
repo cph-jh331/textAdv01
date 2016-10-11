@@ -11,7 +11,8 @@ public class Player {
     private int gold;
     private int healthPotAmount = 3;
     private int potHeal = 25;
-    private String name;    
+    private String name; 
+    private int room;
 
     /**
      * @return the health
@@ -81,6 +82,20 @@ public class Player {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the room
+     */
+    public int getRoom() {
+        return room;
+    }
+
+    /**
+     * @param room the room to set
+     */
+    public void setRoom(int room) {
+        this.room = room;
     }
     
 }
