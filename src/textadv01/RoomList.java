@@ -71,7 +71,8 @@ public class RoomList {
                 + "", -1, -1, -1, -1, rand.randomGold());
         getRoomList().add(r);
 
-    }
+        }
+    
 
     /**
      * @return the roomList

@@ -84,6 +84,7 @@ public class Room {
             }
         }
     }
+    
 
     /**
      * @return the roomDesc
@@ -125,5 +126,12 @@ public class Room {
      */
     public int getWest() {
         return west;
+    }
+
+    /**
+     * @param gold the gold to set
+     */
+    public void setGold(int gold) {
+        this.gold = gold;
     }
 }
