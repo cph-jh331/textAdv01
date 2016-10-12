@@ -24,18 +24,20 @@ public class Room {
     private int south;
     private int east;
     private int west;
+    private boolean end;
 
     public Room() {
 
     }
 
-    public Room(String desc, int north, int south, int east, int west, int gold) {
+    public Room(String desc, int north, int south, int east, int west, int gold, boolean end) {
         this.east = east;
         this.south = south;
         this.west = west;
         this.north = north;
         this.gold = gold;
         this.roomDesc = desc;
+        this.end = end;
     }
 
     public String roomDirection() {
@@ -76,6 +78,13 @@ public class Room {
             }
         }
     }
+    
+    public boolean theEnd() {
+    if(this.end == true){
+        return true;
+    }
+    return false;
+}
 
     /**
      * @return the roomDesc

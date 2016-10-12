@@ -180,6 +180,12 @@ public class Text {
                 + "at full speed into a nearby wall,"
                 + "\nshattering the skull...");
     }
+    
+    public void theEnd(){
+        System.out.println(pl.getName() + " collected the treasure of " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold\n"
+                + ""
+                + "and ended the game with: " + pl.getGold() + " gold pieces!");
+    }
 
     /**
      * @return the input

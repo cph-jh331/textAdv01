@@ -28,7 +28,7 @@ public class Textadv01 {
         st.textDivider();
         st.roomDescription(pl.getRoom());
         st.whatToDo();
-        while (2 > 1) {
+        while (2 > 1 && rl.getRoomList().get(pl.getRoom()).theEnd() == false) {
             st.enterText();
             switch (st.getInput()) {
 
@@ -67,5 +67,7 @@ public class Textadv01 {
 
             }
         }
+        pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
+        st.theEnd();
     }
 }
