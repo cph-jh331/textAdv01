@@ -32,35 +32,48 @@ public class Textadv01 {
             st.enterText();
             switch (st.getInput()) {
 
+                    //gets what dir you can go from the current room.
                 case "move":
                     st.roomDir();
                     room.goTo();
                     st.textDivider();
                     st.roomDescription(pl.getRoom());
                     break;
-
+                    
+                    //checks the gold amount of the current room.
                 case "look for gold":
                     st.lookingForGold();
                     st.goldCheck();
                     break;
-
+                    
+                    //prints takes gold from the room and adds it to player gold.
                 case "take gold":
                     st.takesTheGold();
                     pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
                     rl.getRoomList().get(pl.getRoom()).setGold(0);
                     break;
 
+                    //prints what in the player inventory
                 case "inventory":
                     st.checkInventory();
                     break;
-
+                    
+                    //prints out what to do.
                 case "help":
                     st.whatToDo();
                     break;
-
+                    
+                    //quits
                 case "quit":
                     st.quitting();
                     return;
+                    
+                    //admin hax!!! Takes you to the end.
+                case "teleport":
+                    st.textDivider();
+                    pl.setRoom(10);
+                    st.roomDescription(pl.getRoom());
+                    break;
 
                 default:
                     st.invalid();

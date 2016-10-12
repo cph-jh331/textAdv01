@@ -91,7 +91,7 @@ public class RoomList {
                 + "\n"
                 + "The tunnel leading to the room suddenly collapses and\n"
                 + "darkness fills the room.\n"
-                + " This is the end…"
+                + " This is the end…\n"
                 + "", -1, -1, -1, -1, rand.randomGold(), true);
         getRoomList().add(r);
 
