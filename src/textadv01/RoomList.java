@@ -36,7 +36,9 @@ public class RoomList {
                 + "", 4, -1, -1, 1, rand.randomGold());
         getRoomList().add(r);
         //rum 3
-        r = new Room(" found another dark room...\n"
+        r = new Room(" enters a room filled with murals,\n"
+                + "which seem to show a story of whoever is\n"
+                + "buried in the Barrow.\n"
                 + ""
                 + "", 5, 1, 4, 6, rand.randomGold());
         getRoomList().add(r);

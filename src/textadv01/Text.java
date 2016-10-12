@@ -39,7 +39,7 @@ public class Text {
     }
 
     public void textDivider() {
-        System.out.println("\n###################################################");
+        System.out.println("\n*************************************************");
     }
 
     public void intro() {
