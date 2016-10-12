@@ -27,6 +27,7 @@ public class Textadv01 {
         
         st.textDivider();
         st.roomDescription(pl.getRoom());
+        st.textDivider2();
         st.whatToDo();
         while (2 > 1 && rl.getRoomList().get(pl.getRoom()).theEnd() == false) {
             st.enterText();
@@ -38,6 +39,7 @@ public class Textadv01 {
                     room.goTo();
                     st.textDivider();
                     st.roomDescription(pl.getRoom());
+                    st.textDivider2();
                     break;
                     
                     //checks the gold amount of the current room.

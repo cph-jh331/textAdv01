@@ -73,6 +73,8 @@ public class Room {
             } else if (input.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
                 break;
+            } else if (input.equalsIgnoreCase("back")){
+                break;
             } else {
                 out.doorNotThere();
             }

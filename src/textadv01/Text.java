@@ -39,7 +39,10 @@ public class Text {
     }
 
     public void textDivider() {
-        System.out.println("\n*************************************************");
+        System.out.println("\n**************************************************************************");        
+    }
+    public void textDivider2(){
+        System.out.println("**************************************************************************");
     }
 
     public void intro() {
@@ -56,7 +59,7 @@ public class Text {
     }
 
     public void roomDescription(int roomnr) {
-        System.out.println(pl.getName() + rl.getRoomList().get(roomnr).getRoomDesc());
+        System.out.println("\t" + pl.getName() + rl.getRoomList().get(roomnr).getRoomDesc());
     }
 
     public void lookingForGold() {
