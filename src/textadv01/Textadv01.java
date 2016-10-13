@@ -63,7 +63,7 @@ public class Textadv01 {
                 case "inventory":
                     st.checkInventory();
                     break;
-
+                //uses a health potion...
                 case "use health pot":
                     com.useHealthPot();
                     break;
@@ -95,7 +95,7 @@ public class Textadv01 {
             pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
             st.theEnd();
 
-        } else if (pl.getHealth() <= 0 && trap.isKilledPlayer() == true) {
+        } else if (pl.getHealth() <= 0 && trap.hasKilledPlayer() == true) {
             st.gotKilled(pl.getName(), trap.getName());
             
         }

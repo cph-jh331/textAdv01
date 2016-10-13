@@ -17,6 +17,7 @@ public class Trap {
     private int room = 0;
     private boolean killedPlayer = false;
 
+    //takes a random name from the String[]
     public void genTrapName() {
         name = rand.trapNames(trapNames);
     }
@@ -80,7 +81,7 @@ public class Trap {
     /**
      * @return the killedPlayer
      */
-    public boolean isKilledPlayer() {
+    public boolean hasKilledPlayer() {
         return killedPlayer;
     }
 

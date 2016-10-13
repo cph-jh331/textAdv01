@@ -9,15 +9,9 @@ public class Room {
     Player pl;
     TrapCtrl trapCtrl;
 
-    public Room(RoomList r, Player p, TrapCtrl trapCtrl) {
-        rl = r;
-        pl = p;
-        this.trapCtrl = trapCtrl;
-    }
     StringBuilder sb = new StringBuilder();
 
     Scanner scan = new Scanner(System.in);
-    // -1 er vores "null".
 
     private String roomDesc;
     private int gold;
@@ -27,9 +21,16 @@ public class Room {
     private int west;
     private boolean end;
     private boolean trap;
+    // -1 er vores "null".
 
     public Room() {
 
+    }
+    
+    public Room(RoomList r, Player p, TrapCtrl trapCtrl) {
+        rl = r;
+        pl = p;
+        this.trapCtrl = trapCtrl;
     }
 
     public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end) {
@@ -42,7 +43,7 @@ public class Room {
         this.end = end;
         this.trap = trap;
     }
-
+    //if there is a room north, south, east or west, then it appends to the stringBuilder.
     public String roomDirection() {
         sb.delete(0, sb.length());
         sb.append("You can go: ");
@@ -60,7 +61,10 @@ public class Room {
         }
         return sb.toString();
     }
-
+    //if there is a room next to the "current" player room, then set the player room to that
+    //if player writes "north","east","south","west".
+    //if the player writes back, you go back to the switch in main.
+    //if there is no door, then it prints out door not there.
     public void goTo() {
         while (1 < 2) {
             String input = scan.nextLine();
@@ -84,6 +88,7 @@ public class Room {
         }
     }
     
+    // checks if the room is the end.
     public boolean theEnd() {
         if (this.end == true) {
             return true;

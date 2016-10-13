@@ -12,9 +12,9 @@ public class Text {
     Player pl;
     Room room;
     RoomList rl;
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     private String input;
-    private String out;
+    private String out; //not used... remove?
 
     public Text() {
 
