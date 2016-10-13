@@ -18,7 +18,7 @@ public class Randomness {
     }
 
     public int genDmgDealt(int maxDmg) {
-        int dmgDealt = rand.nextInt(maxDmg);
+        int dmgDealt = rand.nextInt(maxDmg) + 1;
         return dmgDealt;
     }
 
