@@ -5,10 +5,6 @@
  */
 package textadv01;
 
-/**
- *
- * @author Bloch
- */
 public class Trap {
 
     private Randomness rand = new Randomness();
