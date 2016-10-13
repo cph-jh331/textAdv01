@@ -19,7 +19,7 @@ public class Trap {
     private int maxDmg = 1000;
     private int health = 10;
     private int room = 0;
-    private boolean killedPlayer= false;
+    private boolean killedPlayer = false;
 
     public void genTrapName() {
         name = rand.trapNames(trapNames);

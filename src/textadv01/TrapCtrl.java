@@ -26,11 +26,14 @@ public class TrapCtrl {
 
     public void gloriousTrap() {
 
+        if (rl.getRoomList().get(pl.getRoom()).isTrap() == true) {
             trap.genTrapName();
-        while (rl.getRoomList().get(pl.getRoom()).isTrap() == true) {
             text.textDivider();
             text.trapThere(pl.getName(), trap.getName());
             text.textDivider2();
+        }
+        
+        while (rl.getRoomList().get(pl.getRoom()).isTrap() == true) {
             text.trapWhatToDo();
 
             while (com.checkHealth(pl.getHealth()) == false && rl.getRoomList().get(pl.getRoom()).isTrap() == true) {
@@ -56,14 +59,11 @@ public class TrapCtrl {
             }
             if (rl.getRoomList().get(pl.getRoom()).isTrap() == false) {
                 text.survivedTrap(pl.getName(), trap.getName(), pl.getHealth());
-                rl.getRoomList().get(pl.getRoom()).setTrap(false);
                 if (com.checkPotDrop() == true) {
                     com.addPot();
                     text.droppedPot(trap.getName());
-                    break;
                 } else {
                     text.droppedNothing(trap.getName());
-                    break;
                 }
             }
         }

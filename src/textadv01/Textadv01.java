@@ -25,7 +25,6 @@ public class Textadv01 {
                 st.settedName();
                 break;
             }
-
         }
 
         st.textDivider();
@@ -94,10 +93,11 @@ public class Textadv01 {
         if (rl.getRoomList().get(pl.getRoom()).theEnd() == true) {
             st.textDivider2();
             pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
-            st.theEnd();     
+            st.theEnd();
 
-        } else if (pl.getHealth() <= 0 && trap.isKilledPlayer() == true){
+        } else if (pl.getHealth() <= 0 && trap.isKilledPlayer() == true) {
             st.gotKilled(pl.getName(), trap.getName());
+            
         }
 
     }

@@ -132,7 +132,7 @@ public class Text {
 
     public void trapDealtDmg(String trapName, String playerName, int trapDmg) {
         String dealtDmg = trapName + " got activated on " + playerName + "!\n"
-                + trapName + " did " + trapDmg + " to " + playerName + ".";
+                + trapName + " did " + trapDmg + " damage to " + playerName + ".";
         System.out.println(dealtDmg);
     }
 
