@@ -1,4 +1,3 @@
-
 package textadv01;
 
 import java.util.Scanner;
@@ -8,10 +7,12 @@ public class Room {
     Text out = new Text();
     RoomList rl;
     Player pl;
+    TrapCtrl trapCtrl;
 
-    public Room(RoomList r, Player p) {
+    public Room(RoomList r, Player p, TrapCtrl trapCtrl) {
         rl = r;
         pl = p;
+        this.trapCtrl = trapCtrl;
     }
     StringBuilder sb = new StringBuilder();
 
@@ -25,12 +26,13 @@ public class Room {
     private int east;
     private int west;
     private boolean end;
+    private boolean trap;
 
     public Room() {
 
     }
 
-    public Room(String desc, int north, int south, int east, int west, int gold, boolean end) {
+    public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end) {
         this.east = east;
         this.south = south;
         this.west = west;
@@ -38,6 +40,7 @@ public class Room {
         this.gold = gold;
         this.roomDesc = desc;
         this.end = end;
+        this.trap = trap;
     }
 
     public String roomDirection() {
@@ -73,7 +76,7 @@ public class Room {
             } else if (input.equalsIgnoreCase("west") && rl.getRoomList().get(pl.getRoom()).west >= 0) {
                 pl.setRoom(rl.getRoomList().get(pl.getRoom()).west);
                 break;
-            } else if (input.equalsIgnoreCase("back")){
+            } else if (input.equalsIgnoreCase("back")) {
                 break;
             } else {
                 out.doorNotThere();
@@ -82,11 +85,11 @@ public class Room {
     }
     
     public boolean theEnd() {
-    if(this.end == true){
-        return true;
+        if (this.end == true) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
     /**
      * @return the roomDesc
@@ -135,5 +138,19 @@ public class Room {
      */
     public void setGold(int gold) {
         this.gold = gold;
+    }
+
+    /**
+     * @return the trap
+     */
+    public boolean isTrap() {
+        return trap;
+    }
+
+    /**
+     * @param trap the trap to set
+     */
+    public void setTrap(boolean trap) {
+        this.trap = trap;
     }
 }

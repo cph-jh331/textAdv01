@@ -8,10 +8,13 @@ public class Textadv01 {
     public static void main(String[] args) {
         RoomList rl = new RoomList();
         Player pl = new Player();
-        Room room = new Room(rl, pl);
+        Trap trap = new Trap();
+        Combat com = new Combat(pl, trap);
+        TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
+        Room room = new Room(rl, pl, trapCtrl);
         Text st = new Text(rl, room, pl);
         rl.createRooms();
-        
+
         st.textDivider();
         while (true) {
             st.intro();
@@ -24,16 +27,17 @@ public class Textadv01 {
             }
 
         }
-        
+
         st.textDivider();
         st.roomDescription(pl.getRoom());
         st.textDivider2();
         st.whatToDo();
-        while (2 > 1 && rl.getRoomList().get(pl.getRoom()).theEnd() == false) {
+        while (pl.getHealth() > 0 && rl.getRoomList().get(pl.getRoom()).theEnd() == false) {
+
             st.enterText();
             switch (st.getInput()) {
 
-                    //gets what dir you can go from the current room.
+                //gets what dir you can go from the current room.
                 case "move":
                     st.roomDir();
                     room.goTo();
@@ -41,36 +45,41 @@ public class Textadv01 {
                     st.roomDescription(pl.getRoom());
                     st.textDivider2();
                     break;
-                    
-                    //checks the gold amount of the current room.
+
+                //checks the gold amount of the current room.
                 case "look for gold":
                     st.lookingForGold();
                     st.goldCheck();
                     break;
-                    
-                    //prints takes gold from the room and adds it to player gold.
+
+                //prints takes gold from the room and adds it to player gold.
                 case "take gold":
                     st.takesTheGold();
                     pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
                     rl.getRoomList().get(pl.getRoom()).setGold(0);
+                    trapCtrl.gloriousTrap();
                     break;
 
-                    //prints what in the player inventory
+                //prints what in the player inventory
                 case "inventory":
                     st.checkInventory();
                     break;
-                    
-                    //prints out what to do.
+
+                case "use health pot":
+                    com.useHealthPot();
+                    break;
+
+                //prints out what to do.
                 case "help":
                     st.whatToDo();
                     break;
-                    
-                    //quits
+
+                //quits
                 case "quit":
                     st.quitting();
                     return;
-                    
-                    //admin hax!!! Takes you to the end.
+
+                //admin hax!!! Takes you to the end.
                 case "teleport":
                     st.textDivider();
                     pl.setRoom(10);
@@ -82,7 +91,14 @@ public class Textadv01 {
 
             }
         }
-        pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
-        st.theEnd();
+        if (rl.getRoomList().get(pl.getRoom()).theEnd() == true) {
+            st.textDivider2();
+            pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
+            st.theEnd();     
+
+        } else if (pl.getHealth() <= 0 && trap.isKilledPlayer() == true){
+            st.gotKilled(pl.getName(), trap.getName());
+        }
+
     }
 }

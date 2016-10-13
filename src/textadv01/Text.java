@@ -14,7 +14,7 @@ public class Text {
     RoomList rl;
     Scanner scan = new Scanner(System.in);
     private String input;
-    private String outDesc;
+    private String out;
 
     public Text() {
 
@@ -39,9 +39,10 @@ public class Text {
     }
 
     public void textDivider() {
-        System.out.println("\n**************************************************************************");        
+        System.out.println("\n**************************************************************************");
     }
-    public void textDivider2(){
+
+    public void textDivider2() {
         System.out.println("**************************************************************************");
     }
 
@@ -66,74 +67,6 @@ public class Text {
         System.out.println("\n" + pl.getName() + " starts looking around for gold...");
     }
 
-    public void allDirections() {
-        System.out.println("You can walk North, South, East and West.");
-    }
-
-    public void directionNotWest() {
-        System.out.println("You can walk North, South and East.");
-    }
-
-    public void directionNotEast() {
-        System.out.println("You can walk North, South and West.");
-    }
-
-    public void directionNotSouth() {
-        System.out.println("You can walk North, West and East.");
-    }
-
-    public void directionNotNorth() {
-        System.out.println("You can walk South, West and East.");
-    }
-
-    public void directionNotSouthWest() {
-        System.out.println("You can walk North and East.");
-    }
-
-    public void directionNotNorthWest() {
-        System.out.println("You can walk South and East.");
-    }
-
-    public void directionNotEastWest() {
-        System.out.println("You can walk North and South.");
-    }
-
-    public void directionNotSouthEast() {
-        System.out.println("You can walk North and West.");
-    }
-
-    public void directionNotNorthEast() {
-        System.out.println("You can walk South and West");
-    }
-
-    public void directionNotNorthSouth() {
-        System.out.println("You can walk East and West.");
-    }
-
-    public void directionOnlyNorth() {
-        System.out.println("You can only walk North.");
-    }
-
-    public void directionOnlySouth() {
-        System.out.println("You can only walk South.");
-    }
-
-    public void directionOnlyWest() {
-        System.out.println("You can only walk West.");
-    }
-
-    public void directionOnlyEast() {
-        System.out.println("You can only walk East.");
-    }
-
-    public void noExit() {
-        System.out.println("There is no exit!!!");
-    }
-
-    public void askForName() {
-        System.out.println("Please name yourself...");
-    }
-
     public void doorNotThere() {
         System.out.println("There is no door there...");
     }
@@ -149,6 +82,7 @@ public class Text {
                 + "- look for gold: to look for gold\n"
                 + "- take gold: to take gold\n"
                 + "- inventory: to check inventory\n"
+                + "- use health pot: use a health potion\n"
                 + "- help: to get commands\n"
                 + "- quit: to quit!\n"
                 + "");
@@ -173,21 +107,81 @@ public class Text {
     }
 
     public void checkInventory() {
-        System.out.println("\n" + pl.getName() + " currently have: " + pl.getGold() + " gold\n"
+        System.out.println("\n" + pl.getName() + " currently have:\n"
+                + pl.getGold() + " gold\n"
+                + pl.getNumPots() + " health portions\n"
                 + "");
 
     }
-    
-    public void quitting(){
+
+    public void quitting() {
         System.out.println("\n" + pl.getName() + " have had enough and runs head first\n"
                 + "at full speed into a nearby wall,"
                 + "\nshattering the skull...");
     }
-    
-    public void theEnd(){
+
+    public void theEnd() {
         System.out.println(pl.getName() + " collected the treasure of " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold\n"
                 + ""
                 + "and ended the game with: " + pl.getGold() + " gold pieces!");
+    }
+
+    public void trapThere(String playerName, String trapName) {
+        System.out.println("\t" + playerName + " activated a damn " + trapName + "!");
+    }
+
+    public void trapDealtDmg(String trapName, String playerName, int trapDmg) {
+        String dealtDmg = trapName + " got activated on " + playerName + "!\n"
+                + trapName + " did " + trapDmg + " to " + playerName + ".";
+        System.out.println(dealtDmg);
+    }
+
+    public void healed(String playerName, int numPots, int healAmount, int playerHealth) {
+        String health = playerName + " used a health potion for " + healAmount + ".\n"
+                + playerName + " HP is now: " + playerHealth + ".\n"
+                + playerName + " got " + numPots + " health potions left.\n"
+                + "";
+        System.out.println(health);
+    }
+
+    public void noPots(String playerName) {
+        String noPots = playerName + " has no health potions left!\n";
+        System.out.println(noPots);
+    }
+
+    public void trapWhatToDo() {
+        String what = "What do you want to do?\n"
+                + "- jump: to try to jump\n"
+                + "- use health pot: to use health pot\n"
+                + "";
+        System.out.println(what);
+    }
+
+    public void deathLooms(String playerName) {
+        String deathLooms = playerName + " has taken to much damage! Death looms...\n";
+        System.out.println(deathLooms);
+    }
+
+    public void gotKilled(String playerName, String enemyName) {
+        String gotKilled = playerName + " managed to get killed by a " + enemyName + ".\n"
+                + "";
+        System.out.println(gotKilled);
+    }
+
+    public void survivedTrap(String playerName, String enemyName, int playerHealth) {
+        String survived = enemyName + " destroyed itself.\n"
+                + playerName + " HP: " + playerHealth + ".\n";
+        System.out.println(survived);
+    }
+
+    public void droppedPot(String enemyName) {
+        String dropPot = enemyName + " dropped a health potion!\n";
+        System.out.println(dropPot);
+    }
+
+    public void droppedNothing(String enemyName) {
+        String droppedNothing = enemyName + " did not drop anything.\n";
+        System.out.println(droppedNothing);
     }
 
     /**
