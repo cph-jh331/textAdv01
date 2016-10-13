@@ -44,7 +44,8 @@ public class TrapCtrl {
                     case "jump":
                         if (rand.survived() == true) {
                             text.jumpedOver();
-                            return;
+                            rl.getRoomList().get(pl.getRoom()).setTrap(false);
+                            break;
                         }
                         com.calcDmg();
                         com.calcHealth();
