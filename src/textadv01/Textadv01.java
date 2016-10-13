@@ -14,6 +14,7 @@ public class Textadv01 {
         Room room = new Room(rl, pl, trapCtrl);
         Text st = new Text(rl, room, pl);
         rl.createRooms();
+        st.introArt();
 
         st.textDivider();
         while (true) {
