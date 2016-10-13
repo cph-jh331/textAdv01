@@ -13,7 +13,7 @@ public class RoomList {
 
     public void createRooms() {
         Randomness rand = new Randomness();
-        //String desc, int north, int south, int east, int west, int gold
+        //String desc, int north, int south, int east, int west, int gold, boolean trap, boolean endRoom;
         //rum 0
         Room r = new Room(" stands inside the entrance of the Barrow.\n"
                 + "\tThe entrance is in decay, but maybe there is\n"

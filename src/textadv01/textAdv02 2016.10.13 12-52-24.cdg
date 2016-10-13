@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="textAdv02">
+  <ClassDiagramComponents>
+    <Class name="Combat" package="textadv01" visibility="public" xPosition="418.0" yPosition="527.0">
+      <Fields>
+        <Field name="rand" type="Randomness" visibility="private"/>
+        <Field name="text" type="Text" visibility="private"/>
+        <Field name="pl" type="Player" visibility="package"/>
+        <Field name="trap" type="Trap" visibility="package"/>
+        <Field name="damage" type="int" visibility="private"/>
+        <Field name="potDropChance" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Player" name="pl"/>
+          <Argument type="Trap" name="trap"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcDmg" returnType="void" visibility="public"/>
+        <Method name="calcHealth" returnType="void" visibility="public"/>
+        <Method name="checkNumPots" returnType="boolean" visibility="public">
+          <Argument type="int" name="numPot"/>
+        </Method>
+        <Method name="healYourself" returnType="void" visibility="public"/>
+        <Method name="checkHealth" returnType="boolean" visibility="public">
+          <Argument type="int" name="health"/>
+        </Method>
+        <Method name="checkPotDrop" returnType="boolean" visibility="public"/>
+        <Method name="useHealthPot" returnType="void" visibility="public"/>
+        <Method name="addPot" returnType="void" visibility="public"/>
+        <Method name="checkTooMuchDamage" returnType="void" visibility="public"/>
+        <Method name="getTrapDamage" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Enemies" package="textadv01" visibility="public" xPosition="270.0" yPosition="20.0">
+      <Fields>
+        <Field name="rand" type="Random" visibility="private"/>
+        <Field name="dmg" type="int" visibility="private"/>
+        <Field name="maxHealth" type="int" visibility="private"/>
+        <Field name="names" type="String[]" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="names" returnType="void" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Inventory" package="textadv01" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Player" package="textadv01" visibility="public" xPosition="1134.0" yPosition="83.0">
+      <Fields>
+        <Field name="health" type="int" visibility="private"/>
+        <Field name="dmg" type="int" visibility="private"/>
+        <Field name="gold" type="int" visibility="private"/>
+        <Field name="numPots" type="int" visibility="private"/>
+        <Field name="potHeal" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="room" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getHealth" returnType="int" visibility="public"/>
+        <Method name="setHealth" returnType="void" visibility="public">
+          <Argument type="int" name="health"/>
+        </Method>
+        <Method name="getDmg" returnType="int" visibility="public"/>
+        <Method name="getGold" returnType="int" visibility="public"/>
+        <Method name="setGold" returnType="void" visibility="public">
+          <Argument type="int" name="gold"/>
+        </Method>
+        <Method name="getNumPots" returnType="int" visibility="public"/>
+        <Method name="setHealthPotAmount" returnType="void" visibility="public">
+          <Argument type="int" name="healthPotAmount"/>
+        </Method>
+        <Method name="getPotHeal" returnType="int" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getRoom" returnType="int" visibility="public"/>
+        <Method name="setRoom" returnType="void" visibility="public">
+          <Argument type="int" name="room"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Randomness" package="textadv01" visibility="public" xPosition="95.0" yPosition="355.0">
+      <Fields>
+        <Field name="rand" type="Random" visibility="package"/>
+        <Field name="trapChance" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="randomGold" returnType="int" visibility="public"/>
+        <Method name="trapNames" returnType="String" visibility="public">
+          <Argument type="String[]" name="names"/>
+        </Method>
+        <Method name="genDmgDealt" returnType="int" visibility="public">
+          <Argument type="int" name="maxDmg"/>
+        </Method>
+        <Method name="genPotDrop" returnType="int" visibility="public"/>
+        <Method name="genTrap" returnType="boolean" visibility="public"/>
+        <Method name="survived" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Room" package="textadv01" visibility="public" xPosition="2067.0" yPosition="63.0">
+      <Fields>
+        <Field name="out" type="Text" visibility="package"/>
+        <Field name="rl" type="RoomList" visibility="package"/>
+        <Field name="pl" type="Player" visibility="package"/>
+        <Field name="trapCtrl" type="TrapCtrl" visibility="package"/>
+        <Field name="sb" type="StringBuilder" visibility="package"/>
+        <Field name="scan" type="Scanner" visibility="package"/>
+        <Field name="roomDesc" type="String" visibility="private"/>
+        <Field name="gold" type="int" visibility="private"/>
+        <Field name="north" type="int" visibility="private"/>
+        <Field name="south" type="int" visibility="private"/>
+        <Field name="east" type="int" visibility="private"/>
+        <Field name="west" type="int" visibility="private"/>
+        <Field name="end" type="boolean" visibility="private"/>
+        <Field name="trap" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="RoomList" name="r"/>
+          <Argument type="Player" name="p"/>
+          <Argument type="TrapCtrl" name="trapCtrl"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="desc"/>
+          <Argument type="int" name="north"/>
+          <Argument type="int" name="south"/>
+          <Argument type="int" name="east"/>
+          <Argument type="int" name="west"/>
+          <Argument type="int" name="gold"/>
+          <Argument type="boolean" name="trap"/>
+          <Argument type="boolean" name="end"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="roomDirection" returnType="String" visibility="public"/>
+        <Method name="goTo" returnType="void" visibility="public"/>
+        <Method name="theEnd" returnType="boolean" visibility="public"/>
+        <Method name="getRoomDesc" returnType="String" visibility="public"/>
+        <Method name="getGold" returnType="int" visibility="public"/>
+        <Method name="getNorth" returnType="int" visibility="public"/>
+        <Method name="getSouth" returnType="int" visibility="public"/>
+        <Method name="getEast" returnType="int" visibility="public"/>
+        <Method name="getWest" returnType="int" visibility="public"/>
+        <Method name="setGold" returnType="void" visibility="public">
+          <Argument type="int" name="gold"/>
+        </Method>
+        <Method name="isTrap" returnType="boolean" visibility="public"/>
+        <Method name="setTrap" returnType="void" visibility="public">
+          <Argument type="boolean" name="trap"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RoomList" package="textadv01" visibility="public" xPosition="2097.0" yPosition="1366.0">
+      <Fields>
+        <Field name="roomList" type="ArrayList&lt;Room&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createRooms" returnType="void" visibility="public"/>
+        <Method name="getRoomList" returnType="ArrayList&lt;Room&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Text" package="textadv01" visibility="public" xPosition="1016.0" yPosition="933.0">
+      <Fields>
+        <Field name="pl" type="Player" visibility="package"/>
+        <Field name="room" type="Room" visibility="package"/>
+        <Field name="rl" type="RoomList" visibility="package"/>
+        <Field name="scan" type="Scanner" visibility="package"/>
+        <Field name="input" type="String" visibility="private"/>
+        <Field name="out" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="RoomList" name="r"/>
+          <Argument type="Room" name="ro"/>
+          <Argument type="Player" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="outDescOfRoom" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="roomDesc"/>
+        </Method>
+        <Method name="enterName" returnType="void" visibility="public"/>
+        <Method name="enterText" returnType="void" visibility="public"/>
+        <Method name="textDivider" returnType="void" visibility="public"/>
+        <Method name="textDivider2" returnType="void" visibility="public"/>
+        <Method name="intro" returnType="void" visibility="public"/>
+        <Method name="settedName" returnType="void" visibility="public"/>
+        <Method name="roomDescription" returnType="void" visibility="public">
+          <Argument type="int" name="roomnr"/>
+        </Method>
+        <Method name="lookingForGold" returnType="void" visibility="public"/>
+        <Method name="doorNotThere" returnType="void" visibility="public"/>
+        <Method name="invalid" returnType="void" visibility="public"/>
+        <Method name="whatToDo" returnType="void" visibility="public"/>
+        <Method name="roomDir" returnType="void" visibility="public"/>
+        <Method name="goldCheck" returnType="void" visibility="public"/>
+        <Method name="takesTheGold" returnType="void" visibility="public"/>
+        <Method name="checkInventory" returnType="void" visibility="public"/>
+        <Method name="quitting" returnType="void" visibility="public"/>
+        <Method name="theEnd" returnType="void" visibility="public"/>
+        <Method name="trapThere" returnType="void" visibility="public">
+          <Argument type="String" name="playerName"/>
+          <Argument type="String" name="trapName"/>
+        </Method>
+        <Method name="trapDealtDmg" returnType="void" visibility="public">
+          <Argument type="String" name="trapName"/>
+          <Argument type="String" name="playerName"/>
+          <Argument type="int" name="trapDmg"/>
+        </Method>
+        <Method name="healed" returnType="void" visibility="public">
+          <Argument type="String" name="playerName"/>
+          <Argument type="int" name="numPots"/>
+          <Argument type="int" name="healAmount"/>
+          <Argument type="int" name="playerHealth"/>
+        </Method>
+        <Method name="noPots" returnType="void" visibility="public">
+          <Argument type="String" name="playerName"/>
+        </Method>
+        <Method name="trapWhatToDo" returnType="void" visibility="public"/>
+        <Method name="deathLooms" returnType="void" visibility="public">
+          <Argument type="String" name="playerName"/>
+        </Method>
+        <Method name="gotKilled" returnType="void" visibility="public">
+          <Argument type="String" name="playerName"/>
+          <Argument type="String" name="enemyName"/>
+        </Method>
+        <Method name="survivedTrap" returnType="void" visibility="public">
+          <Argument type="String" name="playerName"/>
+          <Argument type="String" name="enemyName"/>
+          <Argument type="int" name="playerHealth"/>
+        </Method>
+        <Method name="droppedPot" returnType="void" visibility="public">
+          <Argument type="String" name="enemyName"/>
+        </Method>
+        <Method name="droppedNothing" returnType="void" visibility="public">
+          <Argument type="String" name="enemyName"/>
+        </Method>
+        <Method name="jumpedOver" returnType="void" visibility="public"/>
+        <Method name="getInput" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Textadv01" package="textadv01" visibility="public" xPosition="868.0" yPosition="1.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Trap" package="textadv01" visibility="public" xPosition="54.0" yPosition="728.0">
+      <Fields>
+        <Field name="rand" type="Randomness" visibility="private"/>
+        <Field name="trapNames" type="String[]" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="isThere" type="boolean" visibility="private"/>
+        <Field name="maxDmg" type="int" visibility="private"/>
+        <Field name="health" type="int" visibility="private"/>
+        <Field name="room" type="int" visibility="private"/>
+        <Field name="killedPlayer" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="genTrapName" returnType="void" visibility="public"/>
+        <Method name="getMaxDmg" returnType="int" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="isItThere" returnType="boolean" visibility="public"/>
+        <Method name="setIsThere" returnType="void" visibility="public">
+          <Argument type="boolean" name="isThere"/>
+        </Method>
+        <Method name="getHealth" returnType="int" visibility="public"/>
+        <Method name="setHealth" returnType="void" visibility="public">
+          <Argument type="int" name="health"/>
+        </Method>
+        <Method name="getRoom" returnType="int" visibility="public"/>
+        <Method name="setRoom" returnType="void" visibility="public">
+          <Argument type="int" name="room"/>
+        </Method>
+        <Method name="isKilledPlayer" returnType="boolean" visibility="public"/>
+        <Method name="setKilledPlayer" returnType="void" visibility="public">
+          <Argument type="boolean" name="killedPlayer"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TrapCtrl" package="textadv01" visibility="public" xPosition="1283.0" yPosition="603.0">
+      <Fields>
+        <Field name="text" type="Text" visibility="private"/>
+        <Field name="trap" type="Trap" visibility="package"/>
+        <Field name="pl" type="Player" visibility="package"/>
+        <Field name="com" type="Combat" visibility="package"/>
+        <Field name="rl" type="RoomList" visibility="package"/>
+        <Field name="rand" type="Randomness" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Trap" name="trap"/>
+          <Argument type="Player" name="pl"/>
+          <Argument type="Combat" name="com"/>
+          <Argument type="RoomList" name="rl"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="gloriousTrap" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="com" source="textadv01.TrapCtrl" target="textadv01.Combat" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="rand" source="textadv01.Combat" target="textadv01.Randomness" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="out" source="textadv01.Room" target="textadv01.Text" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pl" source="textadv01.TrapCtrl" target="textadv01.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pl" source="textadv01.Text" target="textadv01.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="roomList" source="textadv01.RoomList" target="textadv01.Room" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Room&gt;"/>
+    <HasRelation name="trapCtrl" source="textadv01.Room" target="textadv01.TrapCtrl" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="room" source="textadv01.Text" target="textadv01.Room" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="trap" source="textadv01.TrapCtrl" target="textadv01.Trap" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pl" source="textadv01.Room" target="textadv01.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="trap" source="textadv01.Combat" target="textadv01.Trap" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="textadv01.RoomList" target="textadv01.Room" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pl" source="textadv01.Combat" target="textadv01.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="text" source="textadv01.TrapCtrl" target="textadv01.Text" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="rand" source="textadv01.TrapCtrl" target="textadv01.Randomness" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="rl" source="textadv01.Room" target="textadv01.RoomList" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="RoomList"/>
+    <HasRelation name="rl" source="textadv01.TrapCtrl" target="textadv01.RoomList" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="RoomList"/>
+    <HasRelation name="rand" source="textadv01.Trap" target="textadv01.Randomness" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="text" source="textadv01.Combat" target="textadv01.Text" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="rl" source="textadv01.Text" target="textadv01.RoomList" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="RoomList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
