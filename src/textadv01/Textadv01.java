@@ -97,8 +97,9 @@ public class Textadv01 {
             st.theEnd();
 
         } else if (pl.getHealth() <= 0 && trap.hasKilledPlayer() == true) {
+            st.death();
             st.gotKilled(pl.getName(), trap.getName());
-            
+
         }
 
     }
