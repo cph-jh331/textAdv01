@@ -12,7 +12,7 @@ public class Trap {
     private String[] trapNames = {"Orange trap", "Spring trap", "Trip trap", "Boulder trap"};
     private String name;
     private boolean isThere;
-    private int maxDmg = 1000;
+    private int maxDmg = 25;
     private int health = 10;
     private int room = 0;
     private boolean killedPlayer = false;
