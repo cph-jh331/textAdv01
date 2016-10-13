@@ -39,9 +39,9 @@ public class Randomness {
             return isTrapThere;
         }
     }
-    
-    public boolean survived(){
-        if(rand.nextInt(100) < 50){
+
+    public boolean survived() {
+        if (rand.nextInt(100) < 50) {
             return true;
         }
         return false;

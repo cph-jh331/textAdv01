@@ -76,6 +76,7 @@ public class Textadv01 {
 
                 //quits
                 case "quit":
+                    st.death();
                     st.quitting();
                     return;
 

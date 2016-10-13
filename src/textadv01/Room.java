@@ -26,7 +26,7 @@ public class Room {
     public Room() {
 
     }
-    
+
     public Room(RoomList r, Player p, TrapCtrl trapCtrl) {
         rl = r;
         pl = p;
@@ -43,6 +43,7 @@ public class Room {
         this.end = end;
         this.trap = trap;
     }
+
     //if there is a room north, south, east or west, then it appends to the stringBuilder.
     public String roomDirection() {
         sb.delete(0, sb.length());
@@ -61,6 +62,7 @@ public class Room {
         }
         return sb.toString();
     }
+
     //if there is a room next to the "current" player room, then set the player room to that
     //if player writes "north","east","south","west".
     //if the player writes back, you go back to the switch in main.
@@ -87,7 +89,7 @@ public class Room {
             }
         }
     }
-    
+
     // checks if the room is the end.
     public boolean theEnd() {
         if (this.end == true) {
