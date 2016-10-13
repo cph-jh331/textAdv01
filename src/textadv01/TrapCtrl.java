@@ -12,6 +12,7 @@ public class TrapCtrl {
     Player pl;
     Combat com;
     RoomList rl;
+    Randomness rand = new Randomness();
 
     public TrapCtrl(Trap trap, Player pl, Combat com, RoomList rl) {
         this.com = com;
@@ -32,7 +33,7 @@ public class TrapCtrl {
             text.trapThere(pl.getName(), trap.getName());
             text.textDivider2();
         }
-        
+
         while (rl.getRoomList().get(pl.getRoom()).isTrap() == true) {
             text.trapWhatToDo();
 
@@ -41,6 +42,10 @@ public class TrapCtrl {
 
                 switch (text.getInput()) {
                     case "jump":
+                        if (rand.survived() == true) {
+                            text.jumpedOver();
+                            return;
+                        }
                         com.calcDmg();
                         com.calcHealth();
                         text.trapDealtDmg(trap.getName(), pl.getName(), com.getTrapDamage());

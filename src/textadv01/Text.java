@@ -183,6 +183,10 @@ public class Text {
         String droppedNothing = enemyName + " did not drop anything.\n";
         System.out.println(droppedNothing);
     }
+    
+    public void jumpedOver(){
+        System.out.println("You jumped over the trap!");
+    }
 
     /**
      * @return the input

@@ -27,7 +27,7 @@ public class RoomList {
                 + "\tcome from the ceiling somehow…\n"
                 + "\tyou are not sure how that is possible."
                 + ""
-                + "", 3, 0, 2, -1, rand.randomGold(), true, false);
+                + "", 3, 0, 2, -1, rand.randomGold(), false, false);
         getRoomList().add(r);
         //rum 2
         r = new Room(" enters a room filled with broken glass and pottery.\n"

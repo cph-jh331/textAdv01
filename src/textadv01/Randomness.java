@@ -6,7 +6,7 @@ public class Randomness {
 
     Random rand = new Random();
 
-    private int trapChance = 80;
+    private int trapChance = 50;
 
     public int randomGold() {
         return rand.nextInt(2000);
@@ -38,6 +38,13 @@ public class Randomness {
             isTrapThere = false;
             return isTrapThere;
         }
+    }
+    
+    public boolean survived(){
+        if(rand.nextInt(100) < 50){
+            return true;
+        }
+        return false;
     }
 
 }
