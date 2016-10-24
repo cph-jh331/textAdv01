@@ -12,18 +12,22 @@ public class Text {
     Player pl;
     Room room;
     RoomList rl;
+    Item item;
     private Scanner scan = new Scanner(System.in);
     private String input;
     private String out; //not used... remove?
+
+    StringBuilder sb = new StringBuilder();
 
     public Text() {
 
     }
 
-    public Text(RoomList r, Room ro, Player p) {
+    public Text(RoomList r, Room ro, Player p, Item item) {
         rl = r;
         room = ro;
         pl = p;
+        this.item = item;
     }
 
     public void outDescOfRoom(String name, String roomDesc) {
@@ -67,6 +71,10 @@ public class Text {
         System.out.println("\n" + pl.getName() + " starts looking around for gold...");
     }
 
+    public void lookingForItem() {
+        System.out.println("\n" + pl.getName() + " starts looking around for items...");
+    }
+
     public void doorNotThere() {
         System.out.println("There is no door there...");
     }
@@ -80,7 +88,8 @@ public class Text {
                 + "type in any of these commands:\n"
                 + "- move: to move the next room\n"
                 + "- look for gold: to look for gold\n"
-                + "- take gold: to take gold\n"
+                + "- look for items: to look for items\n"
+                + "- take all: to take all the valuables\n"
                 + "- inventory: to check inventory\n"
                 + "- use health pot: use a health potion\n"
                 + "- help: to get commands\n"
@@ -98,11 +107,23 @@ public class Text {
         System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold in this room\n");
     }
 
+    public void itemCheck() {
+        System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getrItem().getName() + " gold in this room\n");
+    }
+
     public void takesTheGold() {
         if (rl.getRoomList().get(pl.getRoom()).getGold() != 0) {
             System.out.println("\n" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.\n");
         } else {
             System.out.println("\nThere is no gold here... that makes " + pl.getName() + " sad...\n");
+        }
+    }
+
+    public void takesTheItem() {
+        if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
+            System.out.println("\n" + pl.getName() + " franticly takes the " + rl.getRoomList().get(pl.getRoom()).getrItem().getName());
+        } else {
+            System.out.println("\nThere is no item... that makes " + pl.getName() + " sad...\n");
         }
     }
 

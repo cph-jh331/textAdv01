@@ -10,6 +10,8 @@ public class Room {
     TrapCtrl trapCtrl;
 
     StringBuilder sb = new StringBuilder();
+    
+    Item item;
 
     Scanner scan = new Scanner(System.in);
 
@@ -21,19 +23,21 @@ public class Room {
     private int west;
     private boolean end;
     private boolean trap;
+    private Item rItem = null;
     // -1 er vores "null".
 
     public Room() {
 
     }
 
-    public Room(RoomList r, Player p, TrapCtrl trapCtrl) {
+    public Room(RoomList r, Player p, TrapCtrl trapCtrl, Item item) {
         rl = r;
         pl = p;
         this.trapCtrl = trapCtrl;
+        this.rItem = item;
     }
 
-    public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end) {
+    public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end, Item item) {
         this.east = east;
         this.south = south;
         this.west = west;
@@ -42,6 +46,7 @@ public class Room {
         this.roomDesc = desc;
         this.end = end;
         this.trap = trap;
+        this.rItem = item;
     }
 
     //if there is a room north, south, east or west, then it appends to the stringBuilder.
@@ -159,5 +164,19 @@ public class Room {
      */
     public void setTrap(boolean trap) {
         this.trap = trap;
+    }
+
+    /**
+     * @return the rItem
+     */
+    public Item getrItem() {
+        return rItem;
+    }
+
+    /**
+     * @param rItem the rItem to set
+     */
+    public void setrItem(Item rItem) {
+        this.rItem = rItem;
     }
 }

@@ -40,6 +40,26 @@ public class Randomness {
         }
     }
 
+    public Item genItem() {
+        int chance = rand.nextInt(30);
+        if (chance < 10) {
+            return new Broom("Broom", "Very dirty broom", false, rand.nextInt(100));
+        } else if (chance > 10 && chance < 20) {
+            return new Sword("Sword", "Rusty Sword", false, rand.nextInt(100));
+        } else {
+            return new Shield("Shield", "Cardboard shield", false, rand.nextInt(25) + 1, rand.nextInt(25) + 1);
+        }
+    }
+
+
+
+public void chanceOfItem(){
+        int chance = rand.nextInt(100);
+        if (chance < 25){
+            genItem();
+        } 
+    }
+
     public boolean survived() {
         if (rand.nextInt(100) < 50) {
             return true;

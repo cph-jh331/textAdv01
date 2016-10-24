@@ -9,12 +9,17 @@ public class Textadv01 {
         RoomList rl = new RoomList();
         Player pl = new Player();
         Trap trap = new Trap();
+        Item item = new Item();
         Combat com = new Combat(pl, trap);
         TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
-        Room room = new Room(rl, pl, trapCtrl);
-        Text st = new Text(rl, room, pl);
+        Room room = new Room(rl, pl, trapCtrl, item);
+        Text st = new Text(rl, room, pl, item);
         rl.createRooms();
         st.introArt();
+        
+        
+        
+        
 
         st.textDivider();
         while (true) {
@@ -51,12 +56,19 @@ public class Textadv01 {
                     st.lookingForGold();
                     st.goldCheck();
                     break;
+                    
+                case "look for items":
+                    st.lookingForItem();
+                    st.itemCheck();                    
+                    break;
 
                 //prints takes gold from the room and adds it to player gold.
-                case "take gold":
+                case "take all":
                     st.takesTheGold();
                     pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
                     rl.getRoomList().get(pl.getRoom()).setGold(0);
+                    st.takesTheItem();
+                    rl.getRoomList().get(pl.getRoom()).getrItem().setAcquired(true);
                     trapCtrl.gloriousTrap();
                     break;
 
