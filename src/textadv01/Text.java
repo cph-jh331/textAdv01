@@ -16,6 +16,7 @@ public class Text {
     private Scanner scan = new Scanner(System.in);
     private String input;
     private String out; //not used... remove?
+    private String items;
 
     StringBuilder sb = new StringBuilder();
 
@@ -114,6 +115,7 @@ public class Text {
     public void takesTheGold() {
         if (rl.getRoomList().get(pl.getRoom()).getGold() != 0) {
             System.out.println("\n" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.\n");
+            items += rl.getRoomList().get(pl.getRoom()).getrItem().getName() + "\n";
         } else {
             System.out.println("\nThere is no gold here... that makes " + pl.getName() + " sad...\n");
         }
@@ -131,6 +133,7 @@ public class Text {
         System.out.println("\n" + pl.getName() + " currently have:\n"
                 + pl.getGold() + " gold\n"
                 + pl.getNumPots() + " health portions\n"
+                + item
                 + "");
 
     }
