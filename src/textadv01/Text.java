@@ -16,7 +16,7 @@ public class Text {
     private Scanner scan = new Scanner(System.in);
     private String input;
     private String out; //not used... remove?
-    private String items;
+    private String items = "";
 
     StringBuilder sb = new StringBuilder();
 
@@ -133,7 +133,7 @@ public class Text {
         System.out.println("\n" + pl.getName() + " currently have:\n"
                 + pl.getGold() + " gold\n"
                 + pl.getNumPots() + " health portions\n"
-                + item
+                + items
                 + "");
 
     }
