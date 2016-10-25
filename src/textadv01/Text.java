@@ -85,14 +85,16 @@ public class Text {
     }
 
     public void whatToDo() {
-        System.out.println("\n What do you want to do? \n"
-                + "type in any of these commands:\n"
+        System.out.println("\n \t    What do you want to do? \n"
+                + "\ttype in any of these commands:\n"
+                + "------------------------------------------\n \n"
                 + "- move: to move the next room\n"
                 + "- look for gold: to look for gold\n"
                 + "- look for items: to look for items\n"
                 + "- take all: to take all the valuables\n"
                 + "- inventory: to check inventory\n"
                 + "- use health pot: use a health potion\n"
+                + "- stats: to check your current stats\n"
                 + "- help: to get commands\n"
                 + "- quit: to quit!\n"
                 + "");
@@ -115,7 +117,13 @@ public class Text {
     public void takesTheGold() {
         if (rl.getRoomList().get(pl.getRoom()).getGold() != 0) {
             System.out.println("\n" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.\n");
-            items += rl.getRoomList().get(pl.getRoom()).getrItem().getName() + "\n";
+
+            if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
+                items += rl.getRoomList().get(pl.getRoom()).getrItem().getName()
+                        + " - Dmg: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg()
+                        + " - Def: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDef()
+                        + " - Hp Increase: " + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr() + "\n";
+            }
         } else {
             System.out.println("\nThere is no gold here... that makes " + pl.getName() + " sad...\n");
         }
@@ -136,6 +144,15 @@ public class Text {
                 + items
                 + "");
 
+    }
+
+    public void checkStats() {
+        System.out.println("\t Your stats are:\n"
+                + "------------------------------\n"
+                + "\t Dmg: " + pl.getDmg() + "\n"
+                + "\t Def: " + pl.getDef() + "\n"
+                + "\t Hp: " + pl.getHealth() + "\n"
+                + "------------------------------\n");
     }
 
     public void quitting() {

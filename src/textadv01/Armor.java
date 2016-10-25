@@ -19,6 +19,7 @@ public class Armor extends Item {
     /**
      * @return the hpIncr
      */
+    @Override
     public int getHpIncr() {
         return hpIncr;
     }
@@ -33,6 +34,7 @@ public class Armor extends Item {
     /**
      * @return the def
      */
+    @Override
     public int getDef() {
         return def;
     }

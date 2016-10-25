@@ -8,7 +8,8 @@ package textadv01;
 public class Player {
 
     private int health = 100;
-    private int dmg;
+    private int dmg = 5;
+    private int def = 15;
     private int gold;
     private int numPots = 3;
     private int potHeal = 25;
@@ -98,6 +99,27 @@ public class Player {
      */
     public void setRoom(int room) {
         this.room = room;
+    }
+
+    /**
+     * @param dmg the dmg to set
+     */
+    public void setDmg(int dmg) {
+        this.dmg = dmg;
+    }
+
+    /**
+     * @return the def
+     */
+    public int getDef() {
+        return def;
+    }
+
+    /**
+     * @param def the def to set
+     */
+    public void setDef(int def) {
+        this.def = def;
     }
 
 }

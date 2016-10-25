@@ -22,6 +22,7 @@ public class Weapons extends Item {
     /**
      * @return the dmg
      */
+    @Override
     public int getDmg() {
         return dmg;
     }

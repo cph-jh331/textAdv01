@@ -53,11 +53,12 @@ public class Randomness {
 
 
 
-public void chanceOfItem(){
+public Item chanceOfItem(){
         int chance = rand.nextInt(100);
-        if (chance < 25){
-            genItem();
+        if (chance < 10){
+          return genItem();
         } 
+        return null;
     }
 
     public boolean survived() {

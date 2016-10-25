@@ -26,6 +26,18 @@ public class Item {
             return this.name;
         } else return "";
     }
+    
+    public int getDmg(){
+        return 0;
+    }
+    
+    public int getHpIncr() {
+        return 0;
+    }
+    
+     public int getDef() {
+        return 0;
+    }
 
     /**
      * @return the name
