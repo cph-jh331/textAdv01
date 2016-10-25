@@ -111,9 +111,13 @@ public class Text {
     }
 
     public void itemCheck() {
-        System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getrItem().getName() + " gold in this room\n");
+        if(rl.getRoomList().get(pl.getRoom()).getrItem() != null){
+        System.out.println("There is " + rl.getRoomList().get(pl.getRoom()).getrItem().getName() + " in this room\n");
+        }else{
+            System.out.println("There is no items and the makes " + pl.getName() + " very sad");
+        }
     }
-
+        
     public void takesTheGold() {
         if (rl.getRoomList().get(pl.getRoom()).getGold() != 0) {
             System.out.println("\n" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.\n");
