@@ -131,7 +131,7 @@ public class Text {
                 items += rl.getRoomList().get(pl.getRoom()).getrItem().getName()
                         + " - Dmg: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg()
                         + " - Def: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDef()
-                        + " - Hp Increase: " + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr() + "\n";
+                        + " - Hp Increase: " + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr() + "\n\t";
             }
         } else {
             System.out.println("\tThere is no gold here... that makes " + pl.getName() + " sad...");

@@ -77,7 +77,7 @@ public class Controller {
                         pl.setDmg(pl.getDmg() + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg());
                         pl.setDef(pl.getDef() + rl.getRoomList().get(pl.getRoom()).getrItem().getDef());
                         pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
-                        rl.getRoomList().get(pl.getRoom()).getrItem().setAcquired(true);
+                        rl.getRoomList().get(pl.getRoom()).setrItem(null);                        
                     }
                     trapCtrl.gloriousTrap();
                     break;
