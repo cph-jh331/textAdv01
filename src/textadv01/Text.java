@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class Text {
 
-    Player pl;
-    Room room;
-    RoomList rl;
-    Item item;
+    private Player pl;
+    private Room room;
+    private RoomList rl;
+    private Item item;
     private Scanner scan = new Scanner(System.in);
     private String input;
     private String out; //not used... remove?

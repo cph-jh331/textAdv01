@@ -7,14 +7,14 @@ package textadv01;
 
 public class Controller {
 
-    RoomList rl = new RoomList();
-    Player pl = new Player();
-    Trap trap = new Trap();
-    Item item = new Item();
-    Combat com = new Combat(pl, trap);
-    TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
-    Room room = new Room(rl, pl, trapCtrl, item);
-    Text st = new Text(rl, room, pl, item);
+    private RoomList rl = new RoomList();
+    private Player pl = new Player();
+    private Trap trap = new Trap();
+    private Item item = new Item();
+    private Combat com = new Combat(pl, trap);
+    private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
+    private Room room = new Room(rl, pl, trapCtrl, item);
+    private Text st = new Text(rl, room, pl, item);
 
     public void run() {
 

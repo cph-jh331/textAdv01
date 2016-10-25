@@ -11,8 +11,8 @@ public class Combat {
     private Text text = new Text();
     private HealthPot pot = new HealthPot("Health Potion", "Useful Potion", false);
 
-    Player pl;
-    Trap trap;
+    private Player pl;
+    private Trap trap;
 
     private int damage;
     private int potDropChance = 25;

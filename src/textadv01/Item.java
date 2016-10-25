@@ -5,9 +5,7 @@ public class Item {
     private String name;
     private String desc;
     private boolean acquired;
-
-    StringBuilder sb = new StringBuilder();
-
+    
     public Item() {
 
     }
