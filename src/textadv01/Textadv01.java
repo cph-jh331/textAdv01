@@ -49,17 +49,22 @@ public class Textadv01 {
 
                 //checks the gold amount of the current room.
                 case "look for gold":
+                    st.textDivider2();
                     st.lookingForGold();
                     st.goldCheck();
+                    st.textDivider2();
                     break;
 
                 case "look for items":
+                    st.textDivider2();
                     st.lookingForItem();
                     st.itemCheck();
+                    st.textDivider2();
                     break;
 
                 //prints takes gold from the room and adds it to player gold.
                 case "take all":
+                    st.textDivider2();
                     st.takesTheGold();
                     pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
                     rl.getRoomList().get(pl.getRoom()).setGold(0);

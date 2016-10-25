@@ -19,7 +19,7 @@ public class RoomList {
                 + "\tThe entrance is in decay, but maybe there is\n"
                 + "\tsomething valuable in here..."
                 + ""
-                + "", 1, -1, -1, -1, rand.randomGold(), false, false, rand.chanceOfItem());
+                + "", 1, -1, -1, -1, rand.randomGold(), true, false, rand.chanceOfItem());
         getRoomList().add(r);
         //rum 1
         r = new Room(" walks into a dark room, which seems\n"

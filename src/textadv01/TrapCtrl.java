@@ -29,7 +29,7 @@ public class TrapCtrl {
 
         if (rl.getRoomList().get(pl.getRoom()).isTrap() == true) {
             trap.genTrapName();
-            text.textDivider();
+            text.textDivider2();
             text.trapThere(pl.getName(), trap.getName());
             text.textDivider2();
         }
@@ -42,6 +42,7 @@ public class TrapCtrl {
 
                 switch (text.getInput()) {
                     case "jump":
+                        text.textDivider2();
                         if (rand.survived() == true) {
                             text.jumpedOver();
                             rl.getRoomList().get(pl.getRoom()).setTrap(false);
@@ -51,6 +52,7 @@ public class TrapCtrl {
                         com.calcHealth();
                         text.trapDealtDmg(trap.getName(), pl.getName(), com.getTrapDamage());
                         rl.getRoomList().get(pl.getRoom()).setTrap(false);
+
                         break;
                     case "use health pot":
                         com.useHealthPot();
@@ -59,6 +61,7 @@ public class TrapCtrl {
                     default:
                         text.invalid();
                 }
+
                 com.checkTooMuchDamage();
                 break;
 
@@ -71,6 +74,7 @@ public class TrapCtrl {
                 } else {
                     text.droppedNothing(trap.getName());
                 }
+                text.textDivider2();
             }
         }
     }
