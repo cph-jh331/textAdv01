@@ -53,7 +53,7 @@ public class Randomness {
 
     public Item chanceOfItem() {
         int chance = rand.nextInt(100);
-        if (chance < 10) {
+        if (chance < 20) {
             return genItem();
         }
         return null;
