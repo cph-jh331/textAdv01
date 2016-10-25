@@ -1,41 +1,45 @@
-
 package textadv01;
 
 public class Item {
-    
+
     private String name;
     private String desc;
     private boolean acquired;
-    
+
     StringBuilder sb = new StringBuilder();
-    
-    public Item(){
-        
+
+    public Item() {
+
     }
-    
-    
-    public Item(String name, String desc, boolean acq){
+
+    public Item(String name, String desc, boolean acq) {
         this.name = name;
         this.desc = desc;
-        this.acquired = acq;      
-        
+        this.acquired = acq;
+
     }
-    
-    public String acqItems(){
-        if (this.acquired == true){
+
+    public String acqItems() {
+        if (this.acquired == true) {
             return this.name;
-        } else return "";
+        } else {
+            return "";
+        }
     }
-    
-    public int getDmg(){
+
+    public int getNumb() {
         return 0;
     }
-    
+
+    public int getDmg() {
+        return 0;
+    }
+
     public int getHpIncr() {
         return 0;
     }
-    
-     public int getDef() {
+
+    public int getDef() {
         return 0;
     }
 
@@ -80,5 +84,5 @@ public class Item {
     public void setAcquired(boolean acquired) {
         this.acquired = acquired;
     }
-    
+
 }

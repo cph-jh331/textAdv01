@@ -12,10 +12,8 @@ public class Player {
     private int def = 15;
     private int gold;
     private int numPots = 3;
-    private int potHeal = 25;
     private String name;
-    private int room = 0;    
-    
+    private int room = 0;
 
     /**
      * @return the health
@@ -69,10 +67,6 @@ public class Player {
     /**
      * @return the potHeal
      */
-    public int getPotHeal() {
-        return potHeal;
-    }
-
     /**
      * @return the name
      */

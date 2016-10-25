@@ -6,7 +6,7 @@ public class Randomness {
 
     Random rand = new Random();
 
-    private int trapChance = 50;
+    private int trapChance = 25;
 
     public int randomGold() {
         return rand.nextInt(2000);
@@ -51,13 +51,11 @@ public class Randomness {
         }
     }
 
-
-
-public Item chanceOfItem(){
+    public Item chanceOfItem() {
         int chance = rand.nextInt(100);
-        if (chance < 10){
-          return genItem();
-        } 
+        if (chance < 10) {
+            return genItem();
+        }
         return null;
     }
 

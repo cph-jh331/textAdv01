@@ -10,7 +10,7 @@ public class Room {
     TrapCtrl trapCtrl;
 
     StringBuilder sb = new StringBuilder();
-    
+
     Item item;
 
     Scanner scan = new Scanner(System.in);

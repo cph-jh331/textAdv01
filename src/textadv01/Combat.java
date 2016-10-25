@@ -9,6 +9,7 @@ public class Combat {
 
     private Randomness rand = new Randomness();
     private Text text = new Text();
+    private HealthPot pot = new HealthPot("Health Potion", "Useful Potion", false);
 
     Player pl;
     Trap trap;
@@ -42,7 +43,7 @@ public class Combat {
 
     //adds potHeal value to player health and romoves 1 pot from player.
     public void healYourself() {
-        pl.setHealth(pl.getHealth() + pl.getPotHeal());
+        pl.setHealth(pl.getHealth() + pot.getHealAmount());
         pl.setHealthPotAmount(pl.getNumPots() - 1);
     }
 
@@ -68,7 +69,7 @@ public class Combat {
     public void useHealthPot() {
         if (checkNumPots(pl.getNumPots()) == true) {
             healYourself();
-            text.healed(pl.getName(), pl.getNumPots(), pl.getPotHeal(), pl.getHealth());
+            text.healed(pl.getName(), pl.getNumPots(), pot.getHealAmount(), pl.getHealth());
         } else {
             text.noPots(pl.getName());
         }
