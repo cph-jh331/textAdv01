@@ -58,7 +58,7 @@ public class Text {
     }
 
     public void settedName() {
-        System.out.println("\n" + pl.getName() + "...\n"
+        System.out.println("\n\t" + pl.getName() + "...\n"
                 + "\tYou are somewhat certain it is " + pl.getName() + ".\n"
                 + "\t" + pl.getName() + " decides to enter the barrow to hide from\n"
                 + "\tthe evil people in the woods.\n");
@@ -106,7 +106,7 @@ public class Text {
     }
 
     public void roomDir() {
-        System.out.println("\n\t" + pl.getName() + " moves around the room to find out\n"
+        System.out.println("\t" + pl.getName() + " moves around the room to find out\n"
                 + "\twhat direction one can go from here...");
         System.out.println(room.roomDirection());
     }
@@ -128,10 +128,10 @@ public class Text {
             System.out.println("\t" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.");
 
             if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-                items += rl.getRoomList().get(pl.getRoom()).getrItem().getName()
+                items += "\n\t" + rl.getRoomList().get(pl.getRoom()).getrItem().getName()
                         + " - Dmg: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg()
                         + " - Def: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDef()
-                        + " - Hp Increase: " + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr() + "\n\t";
+                        + " - Hp Increase: " + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr() + "\t";
             }
         } else {
             System.out.println("\tThere is no gold here... that makes " + pl.getName() + " sad...");
@@ -140,16 +140,16 @@ public class Text {
 
     public void takesTheItem() {
         if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-            System.out.println("\n\t" + pl.getName() + " franticly takes the " + rl.getRoomList().get(pl.getRoom()).getrItem().getName());
+            System.out.println("\n\t" + pl.getName() + " franticly takes the " + rl.getRoomList().get(pl.getRoom()).getrItem().getName() + ".");
         } else {
-            System.out.println("\n\tThere is no item... that makes " + pl.getName() + " sad...\n");
+            System.out.println("\n\tThere is no item... that makes " + pl.getName() + " sad...");
         }
     }
 
     public void checkInventory() {
-        System.out.println("\n\t" + pl.getName() + " currently have:\n"
+        System.out.println("\t" + pl.getName() + " currently have:\n"
                 + "\t" + pl.getGold() + " gold\n"
-                + "\t" + pl.getNumPots() + " health portions\n"
+                + "\t" + pl.getNumPots() + " health portions"
                 + items
                 + "");
 
@@ -161,7 +161,7 @@ public class Text {
                 + "\t Dmg: " + pl.getDmg() + "\n"
                 + "\t Def: " + pl.getDef() + "\n"
                 + "\t Hp: " + pl.getHealth() + "\n"
-                + "----------------------------------------------------------------------------\n");
+                + "----------------------------------------------------------------------------");
     }
 
     public void quitting() {
@@ -190,7 +190,7 @@ public class Text {
     public void healed(String playerName, int numPots, int healAmount, int playerHealth) {
         String health = "\t" + playerName + " used a health potion for " + healAmount + ".\n"
                 + "\t" + playerName + " HP is now: " + playerHealth + ".\n"
-                + "\t" + playerName + " got " + numPots + " health potions left.\n"
+                + "\t" + playerName + " got " + numPots + " health potions left."
                 + "";
         System.out.println(health);
     }

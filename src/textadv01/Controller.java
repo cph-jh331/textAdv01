@@ -44,7 +44,9 @@ public class Controller {
 
                 //gets what dir you can go from the current room.
                 case "move":
+                    st.textDivider2();
                     st.roomDir();
+                    st.textDivider2();
                     room.goTo();
                     st.textDivider();
                     st.roomDescription(pl.getRoom());
@@ -79,19 +81,26 @@ public class Controller {
                         pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
                         rl.getRoomList().get(pl.getRoom()).setrItem(null);                        
                     }
+                    st.textDivider2();
                     trapCtrl.gloriousTrap();
+                    
                     break;
 
                 //prints what in the player inventory
                 case "inventory":
+                    st.textDivider2();
                     st.checkInventory();
+                    st.textDivider2();
                     break;
                 //uses a health potion...
                 case "use health pot":
+                    st.textDivider2();
                     com.useHealthPot();
+                    st.textDivider2();
                     break;
 
                 case "stats":
+                    st.textDivider2();
                     st.checkStats();
                     break;
 
