@@ -15,6 +15,7 @@ public class Controller {
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
     private Room room = new Room(rl, pl, item);
     private Text st = new Text(rl, room, pl, item);
+    private ReadWrite rw = new ReadWrite(pl);
 
     public void run() {
 
@@ -109,6 +110,11 @@ public class Controller {
                     st.whatToDo();
                     break;
 
+                case "highscore":
+                    rw.readFile();
+                    rw.closeScan();
+                    break;
+
                 //quits
                 case "quit":
                     st.death();
@@ -137,6 +143,12 @@ public class Controller {
             st.gotKilled(pl.getName(), trap.getName());
 
         }
+        if (Integer.parseInt(rw.readFile()) < pl.getGold()) {
+            rw.write(pl.getName(), pl.getGold());
+        } else {
+            rw.write("none", 0);
+        }
+        rw.closeScan();
 
     }
 

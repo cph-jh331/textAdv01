@@ -18,12 +18,18 @@ public class Text {
     public Text() {
 
     }
+    
+    
 
     public Text(RoomList r, Room ro, Player p, Item item) {
         rl = r;
         room = ro;
         pl = p;
         this.item = item;
+    }
+    
+    public void out(String str){
+        System.out.println(str);
     }
 
     public void outDescOfRoom(String name, String roomDesc) {
@@ -95,6 +101,7 @@ public class Text {
                 + "- inventory: to check inventory\n"
                 + "- use health pot: use a health potion\n"
                 + "- stats: to check your current stats\n"
+                + "- highscore: to check the highscore\n" 
                 + "- help: to get commands\n"
                 + "- quit: to quit!\n"
                 + "");
