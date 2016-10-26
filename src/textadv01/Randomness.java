@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Randomness {
 
-    Random rand = new Random();
+    private Random rand = new Random();
 
     private int trapChance = 25;
 
@@ -60,10 +60,7 @@ public class Randomness {
     }
 
     public boolean survived() {
-        if (rand.nextInt(100) < 50) {
-            return true;
-        }
-        return false;
+        return rand.nextInt(100) < 50;
     }
 
 }

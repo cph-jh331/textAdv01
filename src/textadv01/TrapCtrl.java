@@ -8,11 +8,11 @@ package textadv01;
 public class TrapCtrl {
 
     private Text text = new Text();
-    Trap trap;
-    Player pl;
-    Combat com;
-    RoomList rl;
-    Randomness rand = new Randomness();
+    private Trap trap;
+    private Player pl;
+    private Combat com;
+    private RoomList rl;
+    private Randomness rand = new Randomness();
 
     public TrapCtrl(Trap trap, Player pl, Combat com, RoomList rl) {
         this.com = com;

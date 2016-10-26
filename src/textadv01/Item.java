@@ -5,7 +5,7 @@ public class Item {
     private String name;
     private String desc;
     private boolean acquired;
-    
+
     public Item() {
 
     }

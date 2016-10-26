@@ -4,16 +4,15 @@ import java.util.Scanner;
 
 public class Room {
 
-    Text out = new Text();
-    RoomList rl;
-    Player pl;
-    TrapCtrl trapCtrl;
+    private Text out = new Text();
+    private RoomList rl;
+    private Player pl;
 
-    StringBuilder sb = new StringBuilder();
+    private StringBuilder sb = new StringBuilder();
 
-    Item item;
+    private Item item;
 
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
 
     private String roomDesc;
     private int gold;
@@ -30,10 +29,9 @@ public class Room {
 
     }
 
-    public Room(RoomList r, Player p, TrapCtrl trapCtrl, Item item) {
+    public Room(RoomList r, Player p, Item item) {
         rl = r;
         pl = p;
-        this.trapCtrl = trapCtrl;
         this.rItem = item;
     }
 

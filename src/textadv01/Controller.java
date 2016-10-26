@@ -13,7 +13,7 @@ public class Controller {
     private Item item = new Item();
     private Combat com = new Combat(pl, trap);
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
-    private Room room = new Room(rl, pl, trapCtrl, item);
+    private Room room = new Room(rl, pl, item);
     private Text st = new Text(rl, room, pl, item);
 
     public void run() {
@@ -79,11 +79,11 @@ public class Controller {
                         pl.setDmg(pl.getDmg() + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg());
                         pl.setDef(pl.getDef() + rl.getRoomList().get(pl.getRoom()).getrItem().getDef());
                         pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
-                        rl.getRoomList().get(pl.getRoom()).setrItem(null);                        
+                        rl.getRoomList().get(pl.getRoom()).setrItem(null);
                     }
                     st.textDivider2();
                     trapCtrl.gloriousTrap();
-                    
+
                     break;
 
                 //prints what in the player inventory
