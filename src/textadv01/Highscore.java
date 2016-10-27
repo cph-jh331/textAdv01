@@ -44,6 +44,8 @@ public class Highscore {
 
             switch (i) {
                 case 0:
+                    nameScoreArray[4] = nameScoreArray[3];
+                    nameScoreArray[3] = nameScoreArray[2];
                     nameScoreArray[2] = nameScoreArray[1];
                     nameScoreArray[1] = nameScoreArray[0];
                     nameScoreArray[0] = nameScore;
