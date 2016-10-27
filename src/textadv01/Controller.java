@@ -15,7 +15,6 @@ public class Controller {
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
     private Room room = new Room(rl, pl, item);
     private Text st = new Text(rl, room, pl, item);
-    private ReadWrite rw = new ReadWrite(pl);
     private Highscore hs = new Highscore();
 
     public void run() {
