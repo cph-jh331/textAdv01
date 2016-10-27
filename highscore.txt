@@ -1,1 +1,5 @@
-none: 0
+Unknown 10000
+Unknown 7000
+Unknown 5000
+Unknown 2000
+Unknown 1000

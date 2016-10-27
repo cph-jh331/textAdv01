@@ -16,9 +16,10 @@ public class Controller {
     private Room room = new Room(rl, pl, item);
     private Text st = new Text(rl, room, pl, item);
     private ReadWrite rw = new ReadWrite(pl);
+    private Highscore hs = new Highscore();
 
     public void run() {
-
+        hs.readFileToArray();
         rl.createRooms();
         st.introArt();
 
@@ -111,14 +112,15 @@ public class Controller {
                     break;
 
                 case "highscore":
-                    rw.readFile();
-                    rw.closeScan();
+                    st.out(hs.highScoreToString(pl.getName(), pl.getGold()));
                     break;
 
                 //quits
                 case "quit":
                     st.death();
                     st.quitting();
+                    st.out(hs.highscoreNew(pl.getName(), pl.getGold()));
+                    st.out(hs.highScoreToString(pl.getName(), pl.getGold()));
                     return;
 
                 //admin hax!!! Takes you to the end.
@@ -143,12 +145,8 @@ public class Controller {
             st.gotKilled(pl.getName(), trap.getName());
 
         }
-        if (Integer.parseInt(rw.readFile()) < pl.getGold()) {
-            rw.write(pl.getName(), pl.getGold());
-        } else {
-            rw.write("none", 0);
-        }
-        rw.closeScan();
+        st.out(hs.highscoreNew(pl.getName(), pl.getGold()));
+        st.out(hs.highScoreToString(pl.getName(), pl.getGold()));
 
     }
 
