@@ -12,7 +12,6 @@ public class Highscore {
     private String fileName = "highscore.txt";
     private PrintWriter writer;
     private String[] nameScoreArray = new String[5];
-    private String[] nameArray = new String[5];
     private int[] scoreArray = new int[5];
 
     public void openFile() {
@@ -24,6 +23,56 @@ public class Highscore {
     }
 
     public void closeFile() {
+        scan.close();
+    }
+
+    public void emptyTheFile() {
+        try {
+            writer = new PrintWriter(new File(fileName));
+        } catch (FileNotFoundException e) {
+            System.out.println("MUHHSH");
+        }
+        writer.close();
+    }
+
+    public String readFileToString() {
+        openFile();
+        String a;
+        String b;
+        String c = "";
+
+        while (scan.hasNext()) {
+            if (scan.hasNext() != false) {
+                a = scan.next();
+                b = scan.next();
+                c += "\n" + a + " " + b;
+            } else {
+                break;
+            }
+        }
+        scan.close();
+        return c;
+    }
+
+    public void readFileToArrays() {
+        openFile();
+        String a;
+        String b;
+        int c;
+        int counter = 0;
+
+        while (scan.hasNextLine()) {
+            if (scan.hasNext() != false) {
+                a = scan.next();
+                b = scan.next();
+                c = Integer.parseInt(b);
+                scoreArray[counter] = c;
+                nameScoreArray[counter] = a + " " + b;
+                counter++;
+            } else {
+                break;
+            }
+        }
         scan.close();
     }
 
@@ -95,29 +144,6 @@ public class Highscore {
         }
     }
 
-    public void readFileToArrays() {
-        openFile();
-        String a;
-        String b;
-        int c;
-        int counter = 0;
-
-        while (scan.hasNextLine()) {
-            if (scan.hasNext() != false) {
-                a = scan.next();
-                b = scan.next();
-                c = Integer.parseInt(b);
-                nameArray[counter] = a;
-                scoreArray[counter] = c;
-                nameScoreArray[counter] = a + " " + b;
-                counter++;
-            } else {
-                break;
-            }
-        }
-        scan.close();
-    }
-
     public void writeFromArrayToFile() {
         readFileToArrays();
         for (int i = 0; i < nameScoreArray.length; i++) {
@@ -134,15 +160,6 @@ public class Highscore {
 
     }
 
-    public void emptyTheFile() {
-        try {
-            writer = new PrintWriter(new File(fileName));
-        } catch (FileNotFoundException e) {
-            System.out.println("MUHHSH");
-        }
-        writer.close();
-    }
-
     public String highScoreToString(String playerName, int gold) {
         readFileToArrays();
         String high = "----------------------------------------------------------------------------\n"
@@ -155,32 +172,6 @@ public class Highscore {
         high += "\n----------------------------------------------------------------------------";
         return high;
 
-    }
-
-    public String readFile() {
-        openFile();
-        String a = "";
-        String b = "";
-        String c = "";
-
-        while (scan.hasNext()) {
-            if (scan.hasNext() != false) {
-                a = scan.next();
-                b = scan.next();
-                c += "\n" + a + " " + b;
-            } else {
-                break;
-            }
-        }
-        scan.close();
-        return c;
-    }
-
-    /**
-     * @return the name
-     */
-    public String[] getName() {
-        return nameArray;
     }
 
     /**
