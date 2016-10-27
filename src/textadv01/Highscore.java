@@ -102,7 +102,7 @@ public class Highscore {
     }
 
     private void switchAddSortArray(String playerName, int gold, int index) {
-        String nameScore = playerName + " " + gold;
+        String nameScore = playerName + ": " + gold;
         switch (index) {
             case 0:
                 nameScoreArray[4] = nameScoreArray[3];
