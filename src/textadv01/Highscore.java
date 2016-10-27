@@ -40,8 +40,8 @@ public class Highscore {
             }
         }
         if (addScore == true) {
-            switchSortArray(playerName, gold, i);
-            
+            switchAddSortArray(playerName, gold, i);
+
             return "****************************************************************************\n"
                     + "\t" + playerName.toUpperCase() + " HAVE BEEN ADDED TO THE HIGHSCORE!\n"
                     + "****************************************************************************";
@@ -52,7 +52,7 @@ public class Highscore {
         }
     }
 
-    private void switchSortArray(String playerName, int gold, int index) {
+    private void switchAddSortArray(String playerName, int gold, int index) {
         String nameScore = playerName + " " + gold;
         switch (index) {
             case 0:
@@ -97,8 +97,8 @@ public class Highscore {
 
     public void readFileToArrays() {
         openFile();
-        String a = "";
-        String b = "";
+        String a;
+        String b;
         int c;
         int counter = 0;
 
