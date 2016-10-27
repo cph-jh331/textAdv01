@@ -28,8 +28,7 @@ public class Highscore {
     }
 
     public String highscoreNew(String playerName, int gold) {
-        readFileToArray();
-        String nameScore = playerName + " " + gold;
+        readFileToArrays();
         int i;
         boolean addScore = false;
 
@@ -41,51 +40,11 @@ public class Highscore {
             }
         }
         if (addScore == true) {
-
-            switch (i) {
-                case 0:
-                    nameScoreArray[4] = nameScoreArray[3];
-                    nameScoreArray[3] = nameScoreArray[2];
-                    nameScoreArray[2] = nameScoreArray[1];
-                    nameScoreArray[1] = nameScoreArray[0];
-                    nameScoreArray[0] = nameScore;
-                    emptyTheFile();
-                    writeFromArrayToFile();
-                    break;
-                case 1:
-                    nameScoreArray[4] = nameScoreArray[3];
-                    nameScoreArray[3] = nameScoreArray[2];
-                    nameScoreArray[2] = nameScoreArray[1];
-                    nameScoreArray[1] = nameScore;
-                    emptyTheFile();
-                    writeFromArrayToFile();
-                    break;
-                case 2:
-                    nameScoreArray[4] = nameScoreArray[3];
-                    nameScoreArray[3] = nameScoreArray[2];
-                    nameScoreArray[2] = nameScore;
-                    emptyTheFile();
-                    writeFromArrayToFile();
-                    break;
-                case 3:
-                    nameScoreArray[4] = nameScoreArray[3];
-                    nameScoreArray[3] = nameScore;
-                    emptyTheFile();
-                    writeFromArrayToFile();
-                    break;
-                case 4:
-                    nameScoreArray[4] = nameScore;
-                    emptyTheFile();
-                    writeFromArrayToFile();
-                    break;
-                default:
-                    break;
-            }
-
+            switchSortArray(playerName, gold, i);
+            
             return "****************************************************************************\n"
                     + "\t" + playerName.toUpperCase() + " HAVE BEEN ADDED TO THE HIGHSCORE!\n"
                     + "****************************************************************************";
-
         } else {
             return "****************************************************************************\n"
                     + "\tNot a new highScore...\n"
@@ -93,7 +52,50 @@ public class Highscore {
         }
     }
 
-    public void readFileToArray() {
+    private void switchSortArray(String playerName, int gold, int index) {
+        String nameScore = playerName + " " + gold;
+        switch (index) {
+            case 0:
+                nameScoreArray[4] = nameScoreArray[3];
+                nameScoreArray[3] = nameScoreArray[2];
+                nameScoreArray[2] = nameScoreArray[1];
+                nameScoreArray[1] = nameScoreArray[0];
+                nameScoreArray[0] = nameScore;
+                emptyTheFile();
+                writeFromArrayToFile();
+                break;
+            case 1:
+                nameScoreArray[4] = nameScoreArray[3];
+                nameScoreArray[3] = nameScoreArray[2];
+                nameScoreArray[2] = nameScoreArray[1];
+                nameScoreArray[1] = nameScore;
+                emptyTheFile();
+                writeFromArrayToFile();
+                break;
+            case 2:
+                nameScoreArray[4] = nameScoreArray[3];
+                nameScoreArray[3] = nameScoreArray[2];
+                nameScoreArray[2] = nameScore;
+                emptyTheFile();
+                writeFromArrayToFile();
+                break;
+            case 3:
+                nameScoreArray[4] = nameScoreArray[3];
+                nameScoreArray[3] = nameScore;
+                emptyTheFile();
+                writeFromArrayToFile();
+                break;
+            case 4:
+                nameScoreArray[4] = nameScore;
+                emptyTheFile();
+                writeFromArrayToFile();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void readFileToArrays() {
         openFile();
         String a = "";
         String b = "";
@@ -117,7 +119,7 @@ public class Highscore {
     }
 
     public void writeFromArrayToFile() {
-        readFileToArray();
+        readFileToArrays();
         for (int i = 0; i < nameScoreArray.length; i++) {
             String string = nameScoreArray[i];
             try {
@@ -142,7 +144,7 @@ public class Highscore {
     }
 
     public String highScoreToString(String playerName, int gold) {
-        readFileToArray();
+        readFileToArrays();
         String high = "----------------------------------------------------------------------------\n"
                 + "\t" + playerName + " have collected " + gold + " gold.\n"
                 + "\tHighscore list:\n"

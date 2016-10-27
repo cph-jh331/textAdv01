@@ -19,7 +19,7 @@ public class Controller {
     private Highscore hs = new Highscore();
 
     public void run() {
-        hs.readFileToArray();
+        hs.readFileToArrays();
         rl.createRooms();
         st.introArt();
 
