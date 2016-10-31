@@ -41,10 +41,10 @@ public class Randomness {
     }
 
     public Item genItem() {
-        int chance = rand.nextInt(30);
-        if (chance <= 10) {
+        int chance = rand.nextInt(100);
+        if (chance <= 33) {
             return new Broom("Broom", "Very dirty broom", false, rand.nextInt(100));
-        } else if (chance > 10 && chance <= 20) {
+        } else if (chance > 33 && chance <= 66) {
             return new Sword("Sword", "Rusty Sword", false, rand.nextInt(100));
         } else {
             return new Shield("Shield", "Cardboard shield", false, rand.nextInt(25) + 1, rand.nextInt(25) + 1);
@@ -53,7 +53,7 @@ public class Randomness {
 
     public Item chanceOfItem() {
         int chance = rand.nextInt(100);
-        if (chance <= 30) {
+        if (chance <= 35) {
             return genItem();
         }
         return null;
@@ -61,17 +61,17 @@ public class Randomness {
         public Enemies genEnemy() {
         int chance = rand.nextInt(30);
         if (chance <= 10) {
-            return new Hest("Hest", 20 + rand.nextInt(20), rand.nextInt(50));
+            return new Hest("Hest", 20 + rand.nextInt(20), rand.nextInt(25));
         } else if (chance > 10 && chance <= 20) {
-            return new Enhjoerning("Enhjorning", 20+rand.nextInt(20), rand.nextInt(50));
+            return new Enhjoerning("Enhjorning", 20+rand.nextInt(20), rand.nextInt(25));
         } else {
-            return new Ged("Ged", 20 + rand.nextInt(20), rand.nextInt(50));
+            return new Ged("Ged", 20 + rand.nextInt(20), rand.nextInt(25));
         }
     }
 
     public Enemies chanceOfEnemy() {
         int chance = rand.nextInt(100);
-        if (chance <= 30) {
+        if (chance <= 15) {
             return genEnemy();
         }
         return null;
