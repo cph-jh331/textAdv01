@@ -8,6 +8,7 @@ public class Text {
     private Room room;
     private RoomList rl;
     private Item item;
+    private Combat com;
     private Scanner scan = new Scanner(System.in);
     private String input;
     private String out; //not used... remove?

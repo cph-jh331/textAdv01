@@ -22,6 +22,7 @@ public class Room {
     private int west;
     private boolean end;
     private boolean trap;
+    private Enemies rEnemies = null;
     private Item rItem = null;
     // -1 er vores "null".
 
@@ -35,7 +36,7 @@ public class Room {
         this.rItem = item;
     }
 
-    public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end, Item item) {
+    public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end, Item item, Enemies enemy) {
         this.east = east;
         this.south = south;
         this.west = west;
@@ -45,6 +46,7 @@ public class Room {
         this.end = end;
         this.trap = trap;
         this.rItem = item;
+        this.rEnemies = enemy;
     }
 
     //if there is a room north, south, east or west, then it appends to the stringBuilder.
@@ -176,5 +178,19 @@ public class Room {
      */
     public void setrItem(Item rItem) {
         this.rItem = rItem;
+    }
+
+    /**
+     * @return the rEnemies
+     */
+    public Enemies getrEnemies() {
+        return rEnemies;
+    }
+
+    /**
+     * @param rEnemies the rEnemies to set
+     */
+    public void setrEnemies(Enemies rEnemies) {
+        this.rEnemies = rEnemies;
     }
 }

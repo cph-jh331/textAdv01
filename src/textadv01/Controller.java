@@ -6,7 +6,7 @@ public class Controller {
     private Player pl = new Player();
     private Trap trap = new Trap();
     private Item item = new Item();
-    private Combat com = new Combat(pl, trap);
+    private Combat com = new Combat(pl, trap, rl);
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
     private Room room = new Room(rl, pl, item);
     private Text st = new Text(rl, room, pl, item);
@@ -40,13 +40,16 @@ public class Controller {
 
                 //gets what dir you can go from the current room.
                 case "move":
+                    pl.setPreviousRoom(pl.getRoom());
                     st.textDivider2();
                     st.roomDir();
                     st.textDivider2();
                     room.goTo();
+                    com.FightEnemy();
                     st.textDivider();
                     st.roomDescription(pl.getRoom());
                     st.textDivider2();
+
                     break;
 
                 //checks the gold amount of the current room.

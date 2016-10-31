@@ -14,6 +14,7 @@ public class Player {
     private int numPots = 3;
     private String name;
     private int room = 0;
+    private int previousRoom;
 
     /**
      * @return the health
@@ -114,6 +115,20 @@ public class Player {
      */
     public void setDef(int def) {
         this.def = def;
+    }
+
+    /**
+     * @return the previousRoom
+     */
+    public int getPreviousRoom() {
+        return previousRoom;
+    }
+
+    /**
+     * @param previousRoom the previousRoom to set
+     */
+    public void setPreviousRoom(int previousRoom) {
+        this.previousRoom = previousRoom;
     }
 
 }

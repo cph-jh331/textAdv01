@@ -58,6 +58,28 @@ public class Randomness {
         }
         return null;
     }
+        public Enemies genEnemy() {
+        int chance = rand.nextInt(30);
+        if (chance <= 10) {
+            return new Hest("Hest", 20 + rand.nextInt(20), rand.nextInt(50));
+        } else if (chance > 10 && chance <= 20) {
+            return new Enhjoerning("Enhjorning", 20+rand.nextInt(20), rand.nextInt(50));
+        } else {
+            return new Ged("Ged", 20 + rand.nextInt(20), rand.nextInt(50));
+        }
+    }
+
+    public Enemies chanceOfEnemy() {
+        int chance = rand.nextInt(100);
+        if (chance <= 30) {
+            return genEnemy();
+        }
+        return null;
+    }
+    
+    public int blockChance(){
+        return rand.nextInt(100);        
+    }
 
     public boolean survived() {
         return rand.nextInt(100) < 50;

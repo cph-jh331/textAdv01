@@ -1,22 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textadv01;
 
-import java.util.Random;
-
 public class Enemies {
-    private Random rand = new Random();
-    private int dmg = 75;
-    private int maxHealth = 80;
-    private String[] names = {"Goat", "Bat", "Horse"};
+
+    private int health;
+    private int dmg;
     private String name;
-    public void names() {
-
-        name = names[rand.nextInt(names.length)];
-
+    
+    
+    public Enemies (String name, int health, int dmg){
+        this.dmg = dmg;
+        this.health = health;
+        this.name = name;
     }
 
     /**
@@ -24,5 +18,40 @@ public class Enemies {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * @return the health
+     */
+    public int getHealth() {
+        return health;
+    }
+
+    /**
+     * @return the dmg
+     */
+    public int getDmg() {
+        return dmg;
+    }
+
+    /**
+     * @param dmg the dmg to set
+     */
+    public void setDmg(int dmg) {
+        this.dmg = dmg;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @param health the health to set
+     */
+    public void setHealth(int health) {
+        this.health = health;
     }
 }
