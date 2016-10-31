@@ -61,11 +61,11 @@ public class Randomness {
         public Enemies genEnemy() {
         int chance = rand.nextInt(30);
         if (chance <= 10) {
-            return new Hest("Hest", 20 + rand.nextInt(20), rand.nextInt(25));
+            return new Hest("Hest", 20 + rand.nextInt(20), rand.nextInt(25) + 1);
         } else if (chance > 10 && chance <= 20) {
-            return new Enhjoerning("Enhjorning", 20+rand.nextInt(20), rand.nextInt(25));
+            return new Enhjoerning("Enhjorning", 20+rand.nextInt(20), rand.nextInt(25) + 1);
         } else {
-            return new Ged("Ged", 20 + rand.nextInt(20), rand.nextInt(25));
+            return new Ged("Ged", 20 + rand.nextInt(20), rand.nextInt(25) + 1);
         }
     }
 
