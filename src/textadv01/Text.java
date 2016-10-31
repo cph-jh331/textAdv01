@@ -7,11 +7,8 @@ public class Text {
     private Player pl;
     private Room room;
     private RoomList rl;
-    private Item item;
-    private Combat com;
     private Scanner scan = new Scanner(System.in);
     private String input;
-    private String out; //not used... remove?
     private String items = "\t";
 
     StringBuilder sb = new StringBuilder();
@@ -22,11 +19,10 @@ public class Text {
     
     
 
-    public Text(RoomList r, Room ro, Player p, Item item) {
+    public Text(RoomList r, Room ro, Player p) {
         rl = r;
         room = ro;
         pl = p;
-        this.item = item;
     }
     
     public void out(String str){
