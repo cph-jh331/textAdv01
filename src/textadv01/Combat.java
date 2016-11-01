@@ -1,30 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package textadv01;
 
 public class Combat {
-    
+
     private Randomness rand = new Randomness();
     private Text text = new Text();
     private HealthPot pot = new HealthPot("Health Potion", "Useful Potion", false);
     private RoomList rl;
-    
+    private Inventory inv;
+
     private Player pl;
     private Trap trap;
-    
+
     private int damage;
     private int potDropChance = 25;
     private int previousRoom = 0;
-    
-    public Combat(Player pl, Trap trap, RoomList rl) {
+
+    public Combat(Player pl, Trap trap, RoomList rl, Inventory inv) {
         this.rl = rl;
         this.pl = pl;
         this.trap = trap;
+        this.inv = inv;
+
     }
-    
+
     public void FightEnemy() {
         if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null) {
             text.out("A evil " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " appeared!");
@@ -34,11 +32,11 @@ public class Combat {
                     + "> run away - to bravely run away.\n"
                     + "> hpot - to use a health potion.\n");
             while (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null && rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() > 0 && pl.getHealth() > 0) {
-                
+
                 text.enterText();
-                
+
                 switch (text.getInput()) {
-                    
+
                     case "attack":
                         playerAttack();
                         if (rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() > 0) {
@@ -63,7 +61,7 @@ public class Combat {
                         hpOverview();
                         break;
                 }
-                
+
             }
             if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null && rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() <= 0) {
                 text.out("You defeated " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName());
@@ -71,25 +69,35 @@ public class Combat {
             }
         }
     }
-    
+
     public void hpOverview() {
         text.out(pl.getName() + " HP: " + pl.getHealth() + "\n"
                 + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
                 + " HP: " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth());
-        
+
     }
-    
+
     public void enemyAttack() {
         text.out("Enemy hits you for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
         pl.setHealth(pl.getHealth() - rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
-        
+
     }
-    
+
     public void playerAttack() {
-        text.out("You hit the enemy for " + pl.getDmg());
-        rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
+        if (!inv.getWeaponList().isEmpty()) {
+            System.out.println("What weapon do you want to use?\n" + inv.weaponListString());
+            text.enterText();
+            rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - (pl.getDmg() + inv.getDmg(Integer.parseInt(text.getInput()) - 1)));
+            text.out("You hit the enemy for " + (pl.getDmg() + inv.getDmg(Integer.parseInt(text.getInput()) - 1)));
+
+        } else {
+            text.out("You only have your bare hands!");
+            rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
+            text.out("You hit the enemy for " + pl.getDmg());
+        }
+
     }
-    
+
     public void block() {
         if (pl.getDef() >= rand.blockChance()) {
             text.out("You blocked the attack!");
@@ -98,13 +106,13 @@ public class Combat {
             text.out("You failed at blocking the attack!\n"
                     + "Enemy hits yout for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
         }
-        
+
     }
-    
+
     public void flee() {
         text.out("You bravely run away!\n");
         pl.setRoom(pl.getPreviousRoom());
-        
+
     }
 
     //sets trap dmg from a random number from 0 to trap maxDmg
@@ -193,5 +201,5 @@ public class Combat {
     public void setPreviousRoom(int previousRoom) {
         this.previousRoom = previousRoom;
     }
-    
+
 }

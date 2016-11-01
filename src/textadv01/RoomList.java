@@ -15,7 +15,7 @@ public class RoomList {
                 + "\tThe entrance is in decay, but maybe there is\n"
                 + "\tsomething valuable in here..."
                 + ""
-                + "", 1, -1, -1, -1, g.getNumbOfGold(), true, false, rand.chanceOfItem(), null);
+                + "", 1, -1, -1, -1, g.getNumbOfGold(), true, false, rand.chanceOfItem() , null);
         getRoomList().add(r);
         //rum 1
         r = new Room(" walks into a dark room, which seems\n"

@@ -24,5 +24,9 @@ public class Weapons extends Item {
     public void setDmg(int dmg) {
         this.dmg = dmg;
     }
+    
+    public String toString(){
+        return super.toString() + " - Damage: " + getDmg();
+    }
 
 }

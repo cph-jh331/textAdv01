@@ -82,5 +82,9 @@ public class Item {
     public void setAcquired(boolean acquired) {
         this.acquired = acquired;
     }
+    
+    public String toString(){
+        return name + ": " + desc;
+    }
 
 }

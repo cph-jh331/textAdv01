@@ -43,11 +43,11 @@ public class Randomness {
     public Item genItem() {
         int chance = rand.nextInt(100);
         if (chance <= 20) {
-            return new Broom("Broom", "Very dirty broom", false, rand.nextInt(100));
+            return new Broom("Broom", "Very dirty broom", false, rand.nextInt(100) + 1);
         } else if (chance > 20 && chance <= 40) {
-            return new Sword("Sword", "Rusty Sword", false, rand.nextInt(100));
+            return new Sword("Sword", "Rusty Sword", false, rand.nextInt(100) + 1);
         } else if (chance > 40 && chance <= 60) {
-            return new Axe("Axe", "Woodsmen axe", false, rand.nextInt(100));
+            return new Axe("Axe", "Woodsmen axe", false, rand.nextInt(100) + 1);
         } else if (chance > 60 && chance <= 80) {
             return new ChestPlate("Chest plate", "Shiny Chest Plate", false, rand.nextInt(25), rand.nextInt(25));
         } else {

@@ -6,6 +6,7 @@
 package textadv01;
 
 public class Player {
+    
 
     private int health = 100;
     private int dmg = 5;

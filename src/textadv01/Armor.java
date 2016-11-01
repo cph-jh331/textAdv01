@@ -45,5 +45,9 @@ public class Armor extends Item {
     public void setDef(int def) {
         this.def = def;
     }
+    
+    public String toString(){
+        return super.toString() + " Defence: " + def + " Hp increase: " + hpIncr;
+    }
 
 }
