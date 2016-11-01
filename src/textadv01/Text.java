@@ -11,7 +11,7 @@ public class Text {
     private String input;
     private String items = "\t";
 
-    StringBuilder sb = new StringBuilder();
+    
 
     public Text() {
 
