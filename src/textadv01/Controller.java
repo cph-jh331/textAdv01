@@ -76,14 +76,14 @@ public class Controller {
                     st.takesTheItem();
                     if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
                         inv.addToInv();
+                        rl.getRoomList().get(pl.getRoom()).setrItem(null);
 
                     }
-
+//                      OLD INVENTORY SYSTEM OF OLD.
 //                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
 //                        pl.setDmg(pl.getDmg() + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg());
 //                        pl.setDef(pl.getDef() + rl.getRoomList().get(pl.getRoom()).getrItem().getDef());
 //                        pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
-//                        rl.getRoomList().get(pl.getRoom()).setrItem(null);
 //                    }
                     st.textDivider2();
                     trapCtrl.gloriousTrap();
