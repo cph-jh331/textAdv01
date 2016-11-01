@@ -41,6 +41,7 @@ public class Inventory {
                 li += counter + "\t" + item.toString() + "\n";
                 counter++;
             }
+            li += "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n";
         }
 
         return li;

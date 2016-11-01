@@ -16,16 +16,14 @@ public class Text {
     public Text() {
 
     }
-    
-    
 
     public Text(RoomList r, Room ro, Player p) {
         rl = r;
         room = ro;
         pl = p;
     }
-    
-    public void out(String str){
+
+    public void out(String str) {
         System.out.println(str);
     }
 
@@ -98,7 +96,7 @@ public class Text {
                 + "- inventory: to check inventory\n"
                 + "- use health pot: use a health potion\n"
                 + "- stats: to check your current stats\n"
-                + "- highscore: to check the highscore\n" 
+                + "- highscore: to check the highscore\n"
                 + "- help: to get commands\n"
                 + "- quit: to quit!\n"
                 + "");
@@ -145,12 +143,13 @@ public class Text {
         }
     }
 
-    public void checkInventory() {
+    public void checkInventory(String weaponList, String armorList) {
         System.out.println("\t" + pl.getName() + " currently have:\n"
                 + "\t" + pl.getGold() + " gold\n"
-                + "\t" + pl.getNumPots() + " health portions"
-                + items
-                + "");
+                + "\t" + pl.getNumPots() + " health portions\n"
+                + "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n"
+                + weaponList 
+                + armorList);
 
     }
 

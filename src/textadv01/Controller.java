@@ -77,7 +77,6 @@ public class Controller {
                     if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
                         inv.addToInv();
                         rl.getRoomList().get(pl.getRoom()).setrItem(null);
-
                     }
 //                      OLD INVENTORY SYSTEM OF OLD.
 //                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
@@ -93,9 +92,7 @@ public class Controller {
                 //prints what in the player inventory
                 case "inventory":
                     st.textDivider2();
-                    st.out(inv.weaponListString() +
-                            "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n" + inv.armorListString());
-//                    st.checkInventory();
+                    st.checkInventory(inv.weaponListString(), inv.armorListString());
                     st.textDivider2();
                     break;
                 //uses a health potion...
