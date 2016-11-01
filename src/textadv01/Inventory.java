@@ -18,11 +18,11 @@ public class Inventory {
     public void addToInv() {
         if (rl.getRoomList().get(pl.getRoom()).getrItem().getDmg() > 0) {
             getWeaponList().add(rl.getRoomList().get(pl.getRoom()).getrItem());
-            System.out.println("WEAPONLIST");
+
         } else {
             getArmorList().add(rl.getRoomList().get(pl.getRoom()).getrItem());
             addStats();
-            System.out.println("ARMORLIST");
+
         }
     }
 
