@@ -69,14 +69,14 @@ public class Equip extends Inventory2 {
                     case 0:
                         if (!invItemName.contains("chest plate")) {
                             if (bodyItemName.equalsIgnoreCase("nothing")) {
-                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
+                                text.equipReplace(inv.get(index).getName(), body.get(inputNumb).getName(), whereBody[inputNumb]);
                                 body.set(inputNumb, inv.get(index));
                                 inv.remove(index);
                                 invalid = false;
 
                                 break;
                             } else {
-                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
+                                text.equipReplace(inv.get(index).getName(), body.get(inputNumb).getName(), whereBody[inputNumb]);
                                 inv.add(body.get(inputNumb));
                                 body.set(inputNumb, inv.get(index));
                                 removeItemFromArray(inv, index);
@@ -90,13 +90,13 @@ public class Equip extends Inventory2 {
                     case 1:
                         if (!invItemName.contains("chest plate")) {
                             if (bodyItemName.equalsIgnoreCase("nothing")) {
-                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
+                                text.equipReplace(inv.get(index).getName(), body.get(inputNumb).getName(), whereBody[inputNumb]);
                                 body.set(inputNumb, inv.get(index));
                                 inv.remove(index);
                                 invalid = false;
                                 break;
                             } else {
-                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
+                                text.equipReplace(inv.get(index).getName(), body.get(inputNumb).getName(), whereBody[inputNumb]);
                                 inv.add(body.get(inputNumb));
                                 body.set(inputNumb, inv.get(index));
                                 removeItemFromArray(inv, index);
@@ -110,13 +110,13 @@ public class Equip extends Inventory2 {
                     case 2:
                         if (invItemName.contains("chest plate")) {
                             if (bodyItemName.equalsIgnoreCase("nothing")) {
-                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
+                                text.equipReplace(inv.get(index).getName(), body.get(inputNumb).getName(), whereBody[inputNumb]);
                                 body.set(inputNumb, inv.get(index));
                                 inv.remove(index);
                                 invalid = false;
                                 break;
                             } else {
-                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
+                                text.equipReplace(inv.get(index).getName(), body.get(inputNumb).getName(), whereBody[inputNumb]);
                                 inv.add(body.get(inputNumb));
                                 body.set(inputNumb, inv.get(index));
                                 removeItemFromArray(inv, index);

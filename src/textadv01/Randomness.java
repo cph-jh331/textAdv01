@@ -103,7 +103,7 @@ public class Randomness {
 
     public Enemies chanceOfEnemy() {
         int chance = getRand().nextInt(100);
-        if (chance <= 15) {
+        if (chance <= 20) {
             return genEnemy();
         }
         return null;
