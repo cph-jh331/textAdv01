@@ -31,7 +31,7 @@ public class Equip extends Inventory2 {
             while (invalid == true) {
                 text.equipWhatToDo(invToString(inv));
                 text.enterText();
-                if (tryParsing(text.getInput()) == true && inv.get(text.parseInput()) == null) {
+                if (tryParsing(text.getInput()) == true && (inv.size() + 1) < text.parseInput()) {
 
                     System.out.println("Nothing at " + text.getInput());
 
