@@ -31,11 +31,9 @@ public class Equip extends Inventory2 {
             while (invalid == true) {
                 text.equipWhatToDo(invToString(inv));
                 text.enterText();
-                if (tryParsing(text.getInput()) == true && (inv.size() + 1) < text.parseInput()) {
-
-                    System.out.println("Nothing at " + text.getInput());
-
-                } else if (tryParsing(text.getInput()) == true && inv.get(text.parseInput()) != null) {
+                if (inv.size() < text.parseInput()) {
+                    System.out.println("Please try again!");
+                } else if (tryParsing(text.getInput()) == true) {
                     String name = inv.get(text.parseInput()).getName().toLowerCase();
 
                     if (name.equals("gold") || name.equals("health potion")) {
