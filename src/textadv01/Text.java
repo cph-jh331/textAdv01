@@ -145,8 +145,7 @@ public class Text {
     }
 
     public void theEnd() {
-        System.out.println("\t" + pl.getName() + " collected the treasure of "
-                + pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()) + "\n"
+        System.out.println(pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()) + "\n"
                 + ""
                 + "\tand ended the game with: " + pl.getGold() + " gold pieces!");
     }

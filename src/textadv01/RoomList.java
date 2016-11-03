@@ -87,7 +87,7 @@ public class RoomList {
                 + "\tThe tunnel leading to the room suddenly collapses and\n"
                 + "\tdarkness fills the room.\n"
                 + "\tThis is the end…"
-                + "", -1, -1, -1, -1, genTreasure(), false, true, new SlutBoss("Slutty Boss", 100, 100));
+                + "", -1, -1, -1, -1, true, false, true, new SlutBoss("Slutty Boss", 100, 100));
         getRoomList().add(r);
 
         populateInv(roomList.get(0), roomList.get(0).hasTreasure());

@@ -4,8 +4,7 @@ public class Combat {
 
     private Randomness rand = new Randomness();
     private Text text = new Text();
-    private RoomList rl;
-    private Inventory inv;
+    private RoomList rl;    
 
     private Player pl;
     private Trap trap;
@@ -14,12 +13,10 @@ public class Combat {
     private int potDropChance = 99;
     private int previousRoom = 0;
 
-    public Combat(Player pl, Trap trap, RoomList rl, Inventory inv) {
+    public Combat(Player pl, Trap trap, RoomList rl) {
         this.rl = rl;
         this.pl = pl;
         this.trap = trap;
-        this.inv = inv;
-
     }
 
     public void FightEnemy() {
@@ -87,12 +84,12 @@ public class Combat {
 
         if (pl.getEquip().getBody().get(0).getName().equalsIgnoreCase("Nothing") && pl.getEquip().getBody().get(1).getName().equalsIgnoreCase("Nothing")) {
             attack = "" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " with his bare hands,\n"
-                    + "doing " + pl.getDmg() + "damage to it!";
+                    + "doing " + pl.getDmg() + " damage to it!";
         } else if (pl.getEquip().getBody().get(0).getDmg() > 0 || pl.getEquip().getBody().get(1).getDmg() > 0) {
             attack = "" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
                     + " with a " + pl.getEquip().getBody().get(0).getName() 
                     + " and a " + pl.getEquip().getBody().get(1).getName() + ",\n"
-                    + "doing " + pl.getDmg() + "to the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "!";
+                    + "doing " + pl.getDmg() + " to the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "!";
         }
         rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
         return attack;

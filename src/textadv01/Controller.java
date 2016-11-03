@@ -4,10 +4,9 @@ public class Controller {
 
     private RoomList rl = new RoomList();
     private Player pl = new Player();
-    private Room room = new Room(rl, pl);
-    private Inventory inv = new Inventory(rl, pl);
+    private Room room = new Room(rl, pl);    
     private Trap trap = new Trap();
-    private Combat com = new Combat(pl, trap, rl, inv);
+    private Combat com = new Combat(pl, trap, rl);
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
     private Text st = new Text(rl, room, pl);
     private Highscore hs = new Highscore();
@@ -151,8 +150,7 @@ public class Controller {
             }
         }
         if (rl.getRoomList().get(pl.getRoom()).theEnd() == true) {
-            st.textDivider2();
-            st.out(pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()));
+            st.textDivider2();            
             st.theEnd();
 
         } else if (pl.getHealth() <= 0 && trap.hasKilledPlayer() == true) {
