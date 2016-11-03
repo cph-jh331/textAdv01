@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Equip extends Inventory2 {
 
     private Text text = new Text();
-    private ArrayList<Item> body = new ArrayList<>(3);
+    private ArrayList<Item> body = new ArrayList<>();
     private String[] whereBody = {"Right Hand", "Left Hand", "Chest"};
 
     //0 er højrehånd, 1 er venstrehånd, 2 er chest.
@@ -31,9 +31,9 @@ public class Equip extends Inventory2 {
             while (invalid == true) {
                 text.equipWhatToDo(invToString(inv));
                 text.enterText();
-                if (tryParsing(text.getInput()) == true && (inv.size()) < text.parseInput()) {
+                if (tryParsing(text.getInput()) == true && (inv.size() - 1) < text.parseInput()) {
                     System.out.println("Please try again!");
-                } else if (tryParsing(text.getInput()) == true ) {
+                } else if (tryParsing(text.getInput()) == true && (inv.size() - 1) >= text.parseInput()) {
                     String name = inv.get(text.parseInput()).getName().toLowerCase();
 
                     if (name.equals("gold") || name.equals("health potion")) {
@@ -75,7 +75,7 @@ public class Equip extends Inventory2 {
                                         + " on your " + whereBody[inputNumb] + ".\n"
                                         + "Replacing " + body.get(inputNumb).getName() + ".");
                                 body.set(inputNumb, inv.get(index));
-                                inv.remove(index);                                
+                                inv.remove(index);
                                 invalid = false;
 
                                 break;
