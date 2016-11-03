@@ -4,17 +4,19 @@ public class Controller {
 
     private RoomList rl = new RoomList();
     private Player pl = new Player();
+    private Room room = new Room(rl, pl);
     private Inventory inv = new Inventory(rl, pl);
     private Trap trap = new Trap();
-    private Item item = new Item();
     private Combat com = new Combat(pl, trap, rl, inv);
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
-    private Room room = new Room(rl, pl, item);
     private Text st = new Text(rl, room, pl);
     private Highscore hs = new Highscore();
 
     public void run() {
         hs.readFileToArrays();
+        pl.getInv().populatePlayerInv();
+        System.out.println(pl.getInv().toString());
+        System.out.println(pl.getEquip().invToString(pl.getInventory()));
         rl.createRooms();
         st.introArt();
 
@@ -52,54 +54,66 @@ public class Controller {
                     st.textDivider2();
                     break;
 
-                //checks the gold amount of the current room.
-                case "look for gold":
-                    st.textDivider2();
-                    st.lookingForGold();
-                    st.goldCheck();
-                    st.textDivider2();
+                case "look":
+                    st.startsLooking(rl.getRoomList().get(pl.getRoom()).getInv().toString());
                     break;
 
-                case "look for items":
-                    st.textDivider2();
-                    st.lookingForItem();
-                    st.itemCheck();
-                    st.textDivider2();
+                //checks the gold amount of the current room.
+//                case "look for gold":
+//                    st.textDivider2();
+//                    st.lookingForGold();
+//                    st.goldCheck();
+//                    st.textDivider2();
+//                    break;
+//
+//                case "look for items":
+//                    st.textDivider2();
+//                    st.lookingForItem();
+//                    st.itemCheck();
+//                    st.textDivider2();
+//                    break;
+                case "take all":
+                    st.out(pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()));
+                    rl.getRoomList().get(pl.getRoom()).setTreasure(false);
+                    trapCtrl.gloriousTrap();
                     break;
 
                 //prints takes gold from the room and adds it to player gold.
-                case "take all":
-                    st.textDivider2();
-                    st.takesTheGold();
-                    pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
-                    rl.getRoomList().get(pl.getRoom()).setGold(0);
-                    st.takesTheItem();
-                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-                        inv.addToInv();
-                        rl.getRoomList().get(pl.getRoom()).setrItem(null);
-                    }
-//                      OLD INVENTORY SYSTEM OF OLD.
+//                case "take all":
+//                    st.textDivider2();
+//                    st.takesTheGold();
+//                    pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
+//                    rl.getRoomList().get(pl.getRoom()).setGold(0);
+//                    st.takesTheItem();
 //                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-//                        pl.setDmg(pl.getDmg() + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg());
-//                        pl.setDef(pl.getDef() + rl.getRoomList().get(pl.getRoom()).getrItem().getDef());
-//                        pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
+//                        inv.addToInv();
+//                        rl.getRoomList().get(pl.getRoom()).setrItem(null);
 //                    }
-                    st.textDivider2();
-                    trapCtrl.gloriousTrap();
-
-                    break;
-
+////                      OLD INVENTORY SYSTEM OF OLD.
+////                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
+////                        pl.setDmg(pl.getDmg() + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg());
+////                        pl.setDef(pl.getDef() + rl.getRoomList().get(pl.getRoom()).getrItem().getDef());
+////                        pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
+////                    }
+//                    st.textDivider2();
+//                    trapCtrl.gloriousTrap();
+//
+//                    break;
                 //prints what in the player inventory
-                case "inventory":
+                case "inv":
                     st.textDivider2();
-                    st.checkInventory(inv.weaponListString(), inv.armorListString());
+                    st.checkInventory(pl.getInv().toString());
                     st.textDivider2();
                     break;
                 //uses a health potion...
-                case "use health pot":
+                case "hpot":
                     st.textDivider2();
                     com.useHealthPot();
                     st.textDivider2();
+                    break;
+
+                case "equip":
+                    pl.getEquip().equip(pl.getInventory());
                     break;
 
                 case "stats":
@@ -138,7 +152,7 @@ public class Controller {
         }
         if (rl.getRoomList().get(pl.getRoom()).theEnd() == true) {
             st.textDivider2();
-            pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
+            st.out(pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()));
             st.theEnd();
 
         } else if (pl.getHealth() <= 0 && trap.hasKilledPlayer() == true) {

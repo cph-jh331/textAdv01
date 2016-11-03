@@ -5,14 +5,16 @@
  */
 package textadv01;
 
+import java.util.ArrayList;
+
 public class Player {
-    
+
+    private Inventory2 inv = new Inventory2();
+    private Equip equip = new Equip();
 
     private int health = 100;
     private int dmg = 5;
     private int def = 15;
-    private int gold;
-    private int numPots = 3;
     private String name;
     private int room = 0;
     private int previousRoom;
@@ -24,6 +26,14 @@ public class Player {
         return health;
     }
 
+    public ArrayList<Item> getInventory() {
+        return inv.getInv();
+    }
+
+    public int getGold() {
+        return inv.getGold(inv.getInv());
+    }
+
     /**
      * @param health the health to set
      */
@@ -31,44 +41,21 @@ public class Player {
         this.health = health;
     }
 
+    public int getNumberOfHpot() {
+        return inv.getNumberOfItem(inv.getInv(), "health potion");
+    }
+    
+    public int getHealFromPot(){
+        return inv.getHealingAmount();
+    }
+
     /**
      * @return the dmg
      */
     public int getDmg() {
-        return dmg;
+        return dmg + equip.getBody().get(0).getDmg() + equip.getBody().get(1).getDmg();
     }
 
-    /**
-     * @return the gold
-     */
-    public int getGold() {
-        return gold;
-    }
-
-    /**
-     * @param gold the gold to set
-     */
-    public void setGold(int gold) {
-        this.gold = gold;
-    }
-
-    /**
-     * @return the healthPotAmount
-     */
-    public int getNumPots() {
-        return numPots;
-    }
-
-    /**
-     * @param healthPotAmount the healthPotAmount to set
-     */
-    public void setHealthPotAmount(int healthPotAmount) {
-        this.numPots = healthPotAmount;
-    }
-
-    /**
-     * @return the potHeal
-     */
     /**
      * @return the name
      */
@@ -108,7 +95,9 @@ public class Player {
      * @return the def
      */
     public int getDef() {
-        return def;
+        return def + equip.getBody().get(0).getDef()
+                + equip.getBody().get(1).getDef()
+                + equip.getBody().get(2).getDef();
     }
 
     /**
@@ -130,6 +119,20 @@ public class Player {
      */
     public void setPreviousRoom(int previousRoom) {
         this.previousRoom = previousRoom;
+    }
+
+    /**
+     * @return the inv
+     */
+    public Inventory2 getInv() {
+        return inv;
+    }
+
+    /**
+     * @return the equip
+     */
+    public Equip getEquip() {
+        return equip;
     }
 
 }

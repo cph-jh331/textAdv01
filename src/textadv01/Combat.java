@@ -4,7 +4,6 @@ public class Combat {
 
     private Randomness rand = new Randomness();
     private Text text = new Text();
-    private HealthPot pot = new HealthPot("Health Potion", "Useful Potion", false);
     private RoomList rl;
     private Inventory inv;
 
@@ -12,7 +11,7 @@ public class Combat {
     private Trap trap;
 
     private int damage;
-    private int potDropChance = 25;
+    private int potDropChance = 99;
     private int previousRoom = 0;
 
     public Combat(Player pl, Trap trap, RoomList rl, Inventory inv) {
@@ -25,7 +24,7 @@ public class Combat {
 
     public void FightEnemy() {
         if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null) {
-            text.out("A evil " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " appeared!");
+            text.out("An evil " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " appeared!");
             text.out("what to do:\n"
                     + "> attack - to attack.\n"
                     + "> defend - to try to block.\n"
@@ -38,7 +37,7 @@ public class Combat {
                 switch (text.getInput()) {
 
                     case "attack":
-                        playerAttack();
+                        text.out(playerAttack());
                         if (rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() > 0) {
                             enemyAttack();
                         }
@@ -83,18 +82,20 @@ public class Combat {
 
     }
 
-    public void playerAttack() {
-        if (!inv.getWeaponList().isEmpty()) {
-            System.out.println("What weapon do you want to use?\n" + inv.weaponListString());
-            text.enterText();
-            rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - (pl.getDmg() + inv.getDmg(Integer.parseInt(text.getInput()) - 1)));
-            text.out("You hit the enemy for " + (pl.getDmg() + inv.getDmg(Integer.parseInt(text.getInput()) - 1)));
+    public String playerAttack() {
+        String attack = "";
 
-        } else {
-            text.out("You only have your bare hands!");
-            rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
-            text.out("You hit the enemy for " + pl.getDmg());
+        if (pl.getEquip().getBody().get(0).getName().equalsIgnoreCase("Nothing") && pl.getEquip().getBody().get(1).getName().equalsIgnoreCase("Nothing")) {
+            attack = "" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " with his bare hands,\n"
+                    + "doing " + pl.getDmg() + "damage to it!";
+        } else if (pl.getEquip().getBody().get(0).getDmg() > 0 || pl.getEquip().getBody().get(1).getDmg() > 0) {
+            attack = "" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
+                    + " with a " + pl.getEquip().getBody().get(0).getName() 
+                    + " and a " + pl.getEquip().getBody().get(1).getName() + ",\n"
+                    + "doing " + pl.getDmg() + "to the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "!";
         }
+        rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
+        return attack;
 
     }
 
@@ -136,8 +137,8 @@ public class Combat {
 
     //adds potHeal value to player health and romoves 1 pot from player.
     public void healYourself() {
-        pl.setHealth(pl.getHealth() + pot.getHealAmount());
-        pl.setHealthPotAmount(pl.getNumPots() - 1);
+        pl.setHealth(pl.getHealth() + pl.getHealFromPot());
+        pl.getInv().minus1OfItem("health potion");
     }
 
     //checks if healht is bigger than 0.
@@ -160,9 +161,9 @@ public class Combat {
 
     //checks if you have any health pots and uses healYourself() if true.
     public void useHealthPot() {
-        if (checkNumPots(pl.getNumPots()) == true) {
+        if (checkNumPots(pl.getNumberOfHpot()) == true) {
             healYourself();
-            text.healed(pl.getName(), pl.getNumPots(), pot.getHealAmount(), pl.getHealth());
+            text.healed(pl.getName(), pl.getNumberOfHpot(), pl.getHealFromPot(), pl.getHealth());
         } else {
             text.noPots(pl.getName());
         }
@@ -170,7 +171,8 @@ public class Combat {
 
     //adds a health pot to player.
     public void addPot() {
-        pl.setHealthPotAmount(pl.getNumPots() + 1);
+        rl.getRoomList().get(pl.getRoom()).getInv().AddHealthPot(rl.getRoomList().get(pl.getRoom()).getInventoryList(), 1);
+        rl.getRoomList().get(pl.getRoom()).setTreasure(true);
     }
 
     //checks if you have taken to much damage.

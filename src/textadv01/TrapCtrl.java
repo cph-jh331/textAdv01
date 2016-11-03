@@ -55,7 +55,7 @@ public class TrapCtrl {
 
                         break;
                     case "use health pot":
-                        com.useHealthPot();
+//                        com.useHealthPot();
                         break;
 
                     default:

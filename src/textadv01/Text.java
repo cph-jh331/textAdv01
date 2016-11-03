@@ -11,8 +11,6 @@ public class Text {
     private String input;
     private String items = "\t";
 
-    
-
     public Text() {
 
     }
@@ -21,6 +19,12 @@ public class Text {
         rl = r;
         room = ro;
         pl = p;
+    }
+
+    public int parseInput() {
+        int numb;
+        numb = Integer.parseInt(input) - 1;
+        return numb;
     }
 
     public void out(String str) {
@@ -71,6 +75,15 @@ public class Text {
     public void lookingForItem() {
         System.out.println("\t" + pl.getName() + " starts looking around for items...");
     }
+    
+    public void startsLooking(String invList){
+        String look ="----------------------------------------------------------------------------\n"
+                + "\t" + pl.getName() + " starts looking around the room and sees:\n"
+                + invList + "\n"
+                + "----------------------------------------------------------------------------";
+        
+        System.out.println(look);
+    }
 
     public void doorNotThere() {
         System.out.println("\tThere is no door there...");
@@ -108,57 +121,19 @@ public class Text {
         System.out.println(room.roomDirection());
     }
 
-    public void goldCheck() {
-        System.out.println("\tThere is " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold in this room.");
-    }
-
-    public void itemCheck() {
-        if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-            System.out.println("\tThere is " + rl.getRoomList().get(pl.getRoom()).getrItem().getName() + " in this room.");
-        } else {
-            System.out.println("\tThere is no items and that makes " + pl.getName() + " very sad.");
-        }
-    }
-
-    public void takesTheGold() {
-        if (rl.getRoomList().get(pl.getRoom()).getGold() != 0) {
-            System.out.println("\t" + pl.getName() + " franticly takes all of the " + rl.getRoomList().get(pl.getRoom()).getGold() + " pieces of gold.");
-
-            if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-                items += "\n\t" + rl.getRoomList().get(pl.getRoom()).getrItem().getName()
-                        + " - Dmg: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg()
-                        + " - Def: " + rl.getRoomList().get(pl.getRoom()).getrItem().getDef()
-                        + " - Hp Increase: " + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr() + "\t";
-            }
-        } else {
-            System.out.println("\tThere is no gold here... that makes " + pl.getName() + " sad...");
-        }
-    }
-
-    public void takesTheItem() {
-        if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-            System.out.println("\n\t" + pl.getName() + " franticly takes the " + rl.getRoomList().get(pl.getRoom()).getrItem().getName() + ".");
-        } else {
-            System.out.println("\n\tThere is no item... that makes " + pl.getName() + " sad...");
-        }
-    }
-
-    public void checkInventory(String weaponList, String armorList) {
+    public void checkInventory(String weaponList) {
         System.out.println("\t" + pl.getName() + " currently have:\n"
-                + "\t" + pl.getGold() + " gold\n"
-                + "\t" + pl.getNumPots() + " health portions\n"
-                + "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n"
-                + weaponList 
-                + armorList);
+                + weaponList);
 
     }
 
     public void checkStats() {
         System.out.println("\t Your stats are:\n"
                 + "----------------------------------------------------------------------------\n"
-                + "\t Dmg: " + pl.getDmg() + "\n"
-                + "\t Def: " + pl.getDef() + "\n"
-                + "\t Hp: " + pl.getHealth() + "\n"
+                + "\tDmg: " + pl.getDmg() + "\n"
+                + "\tDef: " + pl.getDef() + "\n"
+                + "\tHp: " + pl.getHealth() + "\n"
+                + pl.getEquip().equipWithoutCounter() + "\n"
                 + "----------------------------------------------------------------------------");
     }
 
@@ -169,7 +144,8 @@ public class Text {
     }
 
     public void theEnd() {
-        System.out.println("\t" + pl.getName() + " collected the treasure of " + rl.getRoomList().get(pl.getRoom()).getGold() + " gold\n"
+        System.out.println("\t" + pl.getName() + " collected the treasure of "
+                + pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()) + "\n"
                 + ""
                 + "\tand ended the game with: " + pl.getGold() + " gold pieces!");
     }
@@ -177,6 +153,17 @@ public class Text {
     public void trapThere(String playerName, String trapName) {
         String str = "\t" + playerName + " activated a damn " + trapName + "!";
         System.out.println(str.toUpperCase());
+    }
+
+    public void equipWhatToDo(String plInv) {
+        String what = ""
+                + "----------------------------------------------------------------------------\n"
+                + "\tWhat item do you want to equip?:\n"
+                + "----------------------------------------------------------------------------"
+                + "" + plInv
+                + "\n>back - to stop equipping.";
+        
+        System.out.println(what);
     }
 
     public void trapDealtDmg(String trapName, String playerName, int trapDmg) {

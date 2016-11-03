@@ -1,8 +1,11 @@
 package textadv01;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
+
+    private RoomInv inv = new RoomInv();
 
     private Text out = new Text();
     private RoomList rl;
@@ -10,43 +13,38 @@ public class Room {
 
     private StringBuilder sb = new StringBuilder();
 
-    private Item item;
-
     private Scanner scan = new Scanner(System.in);
 
     private String roomDesc;
-    private int gold;
+    private Enemies rEnemies = null;
     private int north;
     private int south;
     private int east;
     private int west;
     private boolean end;
     private boolean trap;
-    private Enemies rEnemies = null;
-    private Item rItem = null;
+    private boolean treasure = false;
+
     // -1 er vores "null".
-
     public Room() {
-
     }
 
-    public Room(RoomList r, Player p, Item item) {
+    public Room(RoomList r, Player p) {
         rl = r;
         pl = p;
-        this.rItem = item;
+
     }
 
-    public Room(String desc, int north, int south, int east, int west, int gold, boolean trap, boolean end, Item item, Enemies enemy) {
+    public Room(String desc, int north, int south, int east, int west, boolean treasure, boolean trap, boolean end, Enemies enemy) {
         this.east = east;
         this.south = south;
         this.west = west;
         this.north = north;
-        this.gold = gold;
         this.roomDesc = desc;
         this.end = end;
         this.trap = trap;
-        this.rItem = item;
         this.rEnemies = enemy;
+        this.treasure = treasure;
     }
 
     //if there is a room north, south, east or west, then it appends to the stringBuilder.
@@ -111,13 +109,6 @@ public class Room {
     }
 
     /**
-     * @return the gold
-     */
-    public int getGold() {
-        return gold;
-    }
-
-    /**
      * @return the north
      */
     public int getNorth() {
@@ -146,13 +137,6 @@ public class Room {
     }
 
     /**
-     * @param gold the gold to set
-     */
-    public void setGold(int gold) {
-        this.gold = gold;
-    }
-
-    /**
      * @return the trap
      */
     public boolean isTrap() {
@@ -167,20 +151,6 @@ public class Room {
     }
 
     /**
-     * @return the rItem
-     */
-    public Item getrItem() {
-        return rItem;
-    }
-
-    /**
-     * @param rItem the rItem to set
-     */
-    public void setrItem(Item rItem) {
-        this.rItem = rItem;
-    }
-
-    /**
      * @return the rEnemies
      */
     public Enemies getrEnemies() {
@@ -192,5 +162,30 @@ public class Room {
      */
     public void setrEnemies(Enemies rEnemies) {
         this.rEnemies = rEnemies;
+    }
+
+    /**
+     * @return the inv
+     */
+    public RoomInv getInv() {
+        return inv;
+    }
+    
+    public ArrayList<Item> getInventoryList(){
+        return inv.getInv();
+    }
+
+    /**
+     * @return the treasure
+     */
+    public boolean hasTreasure() {
+        return treasure;
+    }
+
+    /**
+     * @param treasure the treasure to set
+     */
+    public void setTreasure(boolean treasure) {
+        this.treasure = treasure;
     }
 }

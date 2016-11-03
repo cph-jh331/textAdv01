@@ -10,8 +10,8 @@ public class Armor extends Item {
     private int hpIncr;
     private int def;
 
-    public Armor(String name, String desc, boolean acq, int hpIncr, int def) {
-        super(name, desc, acq);
+    public Armor(String name, String desc, boolean acq, int hpIncr, int def, int numb) {
+        super(name, desc, acq, numb);
         this.hpIncr = hpIncr;
         this.def = def;
     }

@@ -4,8 +4,8 @@ public class Weapons extends Item {
 
     private int dmg;
 
-    public Weapons(String name, String desc, boolean acq, int dmg) {
-        super(name, desc, acq);
+    public Weapons(String name, String desc, boolean acq, int dmg, int numb) {
+        super(name, desc, acq, numb);
         this.dmg = dmg;
 
     }
