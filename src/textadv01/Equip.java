@@ -31,9 +31,9 @@ public class Equip extends Inventory2 {
             while (invalid == true) {
                 text.equipWhatToDo(invToString(inv));
                 text.enterText();
-                if (inv.size() < text.parseInput()) {
+                if (tryParsing(text.getInput()) == true && (inv.size()) < text.parseInput()) {
                     System.out.println("Please try again!");
-                } else if (tryParsing(text.getInput()) == true) {
+                } else if (tryParsing(text.getInput()) == true ) {
                     String name = inv.get(text.parseInput()).getName().toLowerCase();
 
                     if (name.equals("gold") || name.equals("health potion")) {
@@ -61,7 +61,7 @@ public class Equip extends Inventory2 {
         while (invalid == true) {
 
             text.enterText();
-            if (tryParsing(text.getInput()) == true) {
+            if (tryParsing(text.getInput()) == true && body.size() > text.parseInput()) {
 
                 int inputNumb = text.parseInput();
                 String invItemName = inv.get(index).getName().toLowerCase();
@@ -75,7 +75,7 @@ public class Equip extends Inventory2 {
                                         + " on your " + whereBody[inputNumb] + ".\n"
                                         + "Replacing " + body.get(inputNumb).getName() + ".");
                                 body.set(inputNumb, inv.get(index));
-                                inv.remove(index);
+                                inv.remove(index);                                
                                 invalid = false;
 
                                 break;
