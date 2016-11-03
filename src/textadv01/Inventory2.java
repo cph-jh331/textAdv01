@@ -66,6 +66,21 @@ public class Inventory2 {
             }
         }
     }
+    
+        public void addRandomHorseShoe(ArrayList<Item> anyInv, int numb) {
+        int i = 1;
+        while (i <= numb) {
+            System.out.println("adding a axe");
+            HorseShoe horseShoe = new HorseShoe("Meh", "Desc", true, 22, numb);
+            horseShoe.setName(getRand().RandomItemName(horseShoe.getNames()));
+            horseShoe.setDmg(getRand().randomDmgStat(15));
+            getInv().add(horseShoe);
+            i++;
+            if (i > numb) {
+
+            }
+        }
+    }
 
     public void addSpecificAxe(ArrayList<Item> taker, String name, String desc, Boolean acq, int numb, int dmg) {
         int i = 1;

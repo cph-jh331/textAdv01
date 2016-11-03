@@ -12,7 +12,8 @@ public class Randomness {
     private int broomChance = 25;
     private int shieldChance = 25;
     private int chestPlateChance = 25;
-    private int treasureChance = 50;
+    private int treasureChance = 65;
+    private int horseShoeChance = 25;
             
 
 
@@ -171,6 +172,13 @@ public class Randomness {
      */
     public int getTreasureChance() {
         return treasureChance;
+    }
+
+    /**
+     * @return the horseShoeChance
+     */
+    public int getHorseShoeChance() {
+        return horseShoeChance;
     }
 
 }
