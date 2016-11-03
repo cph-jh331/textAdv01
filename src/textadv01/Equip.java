@@ -32,20 +32,19 @@ public class Equip extends Inventory2 {
                 text.equipWhatToDo(invToString(inv));
                 text.enterText();
                 if (tryParsing(text.getInput()) == true && (inv.size() - 1) < text.parseInput()) {
-                    System.out.println("Please try again!");
+                    text.invalid();
                 } else if (tryParsing(text.getInput()) == true && (inv.size() - 1) >= text.parseInput()) {
                     String name = inv.get(text.parseInput()).getName().toLowerCase();
 
                     if (name.equals("gold") || name.equals("health potion")) {
-                        System.out.println(inv.get(text.parseInput()).getName()
-                                + " is already equiped!");
+                        text.alreadyEquiped(inv.get(text.parseInput()).getName());
                     } else if (!name.equals("gold") || !name.equals("health potion")) {
                         int index = text.parseInput();
                         equipWhere(inv, index);
                         break;
                     }
                 } else if (text.getInput().equalsIgnoreCase("back")) {
-                    System.out.println("You decided to not equip anything.");
+                    text.notEquiping();
                     break;
                 } else {
                     text.invalid();
@@ -56,8 +55,7 @@ public class Equip extends Inventory2 {
 
     public void equipWhere(ArrayList<Item> inv, int index) {
         boolean invalid = true;
-        System.out.println("Where do you want to equip the " + inv.get(index).getName() + "?");
-        System.out.println(equipToString());
+        text.equiping(inv.get(index).getName(), equipToString());
         while (invalid == true) {
 
             text.enterText();
@@ -71,18 +69,14 @@ public class Equip extends Inventory2 {
                     case 0:
                         if (!invItemName.contains("chest plate")) {
                             if (bodyItemName.equalsIgnoreCase("nothing")) {
-                                System.out.println("You equip the " + inv.get(index).getName()
-                                        + " on your " + whereBody[inputNumb] + ".\n"
-                                        + "Replacing " + body.get(inputNumb).getName() + ".");
+                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
                                 body.set(inputNumb, inv.get(index));
                                 inv.remove(index);
                                 invalid = false;
 
                                 break;
                             } else {
-                                System.out.println("You equip the " + inv.get(index).getName()
-                                        + " on your " + whereBody[inputNumb] + ".\n"
-                                        + "Replacing " + body.get(inputNumb).getName() + ".");
+                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
                                 inv.add(body.get(inputNumb));
                                 body.set(inputNumb, inv.get(index));
                                 removeItemFromArray(inv, index);
@@ -90,23 +84,19 @@ public class Equip extends Inventory2 {
                                 break;
                             }
                         } else {
-                            System.out.println("You cannot put " + inv.get(index).getName() + " on your " + whereBody[inputNumb] + ".");
+                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);                            
                         }
                         break;
                     case 1:
                         if (!invItemName.contains("chest plate")) {
                             if (bodyItemName.equalsIgnoreCase("nothing")) {
-                                System.out.println("You equip the " + inv.get(index).getName()
-                                        + " on your " + whereBody[inputNumb] + ".\n"
-                                        + "Replacing " + body.get(inputNumb).getName() + ".");
+                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
                                 body.set(inputNumb, inv.get(index));
                                 inv.remove(index);
                                 invalid = false;
                                 break;
                             } else {
-                                System.out.println("You equip the " + inv.get(index).getName()
-                                        + " on your " + whereBody[inputNumb] + ".\n"
-                                        + "Replacing " + body.get(inputNumb).getName() + ".");
+                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
                                 inv.add(body.get(inputNumb));
                                 body.set(inputNumb, inv.get(index));
                                 removeItemFromArray(inv, index);
@@ -114,23 +104,19 @@ public class Equip extends Inventory2 {
                                 break;
                             }
                         } else {
-                            System.out.println("You cannot put " + inv.get(index).getName() + " on your " + whereBody[inputNumb] + ".");
+                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);                            ;
                         }
                         break;
                     case 2:
                         if (invItemName.contains("chest plate")) {
                             if (bodyItemName.equalsIgnoreCase("nothing")) {
-                                System.out.println("You equip the " + inv.get(index).getName()
-                                        + " on your " + whereBody[inputNumb] + ".\n"
-                                        + "Replacing " + body.get(inputNumb).getName() + ".");
+                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
                                 body.set(inputNumb, inv.get(index));
                                 inv.remove(index);
                                 invalid = false;
                                 break;
                             } else {
-                                System.out.println("You equip the " + inv.get(index).getName()
-                                        + " on your " + whereBody[inputNumb] + ".\n"
-                                        + "Replacing " + body.get(inputNumb).getName() + ".");
+                                text.equipReplace(inv.get(index).getName(), whereBody[inputNumb], body.get(inputNumb).getName());
                                 inv.add(body.get(inputNumb));
                                 body.set(inputNumb, inv.get(index));
                                 removeItemFromArray(inv, index);
@@ -138,18 +124,18 @@ public class Equip extends Inventory2 {
                                 break;
                             }
                         } else {
-                            System.out.println("You cannot put a " + inv.get(index).getName() + " on your " + whereBody[inputNumb] + ".");
+                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);                            
                         }
                         break;
                     default:
-                        System.out.println("Invalid");
+                        text.invalid();
                         break;
                 }
 
             } else if (invalid == false) {
                 break;
             } else {
-                System.out.println("You need to write a number");
+                text.enterADamnNumber();
             }
 
         }

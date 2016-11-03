@@ -75,13 +75,13 @@ public class Text {
     public void lookingForItem() {
         System.out.println("\t" + pl.getName() + " starts looking around for items...");
     }
-    
-    public void startsLooking(String invList){
-        String look ="----------------------------------------------------------------------------\n"
+
+    public void startsLooking(String invList) {
+        String look = "----------------------------------------------------------------------------\n"
                 + "\t" + pl.getName() + " starts looking around the room and sees:\n"
                 + invList + "\n"
                 + "----------------------------------------------------------------------------";
-        
+
         System.out.println(look);
     }
 
@@ -103,11 +103,11 @@ public class Text {
                 + "\ttype in any of these commands:\n"
                 + "----------------------------------------------------------------------------\n"
                 + "- move: to move the next room\n"
-                + "- look for gold: to look for gold\n"
-                + "- look for items: to look for items\n"
+                + "- look: to look for valuables\n"                
                 + "- take all: to take all the valuables\n"
-                + "- inventory: to check inventory\n"
-                + "- use health pot: use a health potion\n"
+                + "- inv: to check inventory\n"
+                + "- equip: to equip an item"
+                + "- hpot: use a health potion\n"
                 + "- stats: to check your current stats\n"
                 + "- highscore: to check the highscore\n"
                 + "- help: to get commands\n"
@@ -119,6 +119,7 @@ public class Text {
         System.out.println("\t" + pl.getName() + " moves around the room to find out\n"
                 + "\twhat direction one can go from here...");
         System.out.println(room.roomDirection());
+        System.out.println("\n- back: to stay in the current room.");
     }
 
     public void checkInventory(String weaponList) {
@@ -162,7 +163,7 @@ public class Text {
                 + "----------------------------------------------------------------------------"
                 + "" + plInv
                 + "\n>back - to stop equipping.";
-        
+
         System.out.println(what);
     }
 
@@ -223,6 +224,40 @@ public class Text {
 
     public void jumpedOver() {
         System.out.println("\tYou jumped over the trap!");
+    }
+
+    public void notEquiping() {
+        System.out.println("----------------------------------------------------------------------------\n"
+                + "\tYou decided to not equip anything.\n"
+                + "----------------------------------------------------------------------------\n");
+    }
+
+    public void alreadyEquiped(String itemName) {
+        System.out.println(itemName + " is already equiped!");
+
+    }
+
+    public void equiping(String itemName, String invToString) {
+        String equip = "----------------------------------------------------------------------------\n"
+                + "\t where do you want to equip the " + itemName + "?\n"
+                + invToString
+                + "\n----------------------------------------------------------------------------";
+        System.out.println(equip);
+    }
+
+    public void equipReplace(String itemName, String equipedItem, String body) {
+        System.out.println("You equip the " + itemName
+                + " on your " + body + ".\n"
+                + "Replacing " + equipedItem + ".");
+    }
+    
+    public void cannotEquip(String itemName, String bodyName){
+        
+        System.out.println("You cannot put " + itemName + " on your " + bodyName + ".");
+    }
+    
+    public void enterADamnNumber(){
+        System.out.println("You need to write a number");
     }
 
     /**
