@@ -1,5 +1,14 @@
 package textadv01;
 
+import Items.HealthPot;
+import Items.Gold;
+import Items.Sword;
+import Items.HorseShoe;
+import Items.Shield;
+import Items.Item;
+import Items.ChestPlate;
+import Items.Axe;
+import Items.Broom;
 import java.util.ArrayList;
 
 public class Inventory2 {

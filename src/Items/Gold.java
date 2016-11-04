@@ -1,4 +1,6 @@
-package textadv01;
+package Items;
+
+import Items.Item;
 
 public class Gold extends Item {
 

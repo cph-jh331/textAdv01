@@ -1,5 +1,7 @@
 
-package textadv01;
+package Enemy;
+
+import Enemy.Enemies;
 
 public class SlutBoss extends Enemies {
     

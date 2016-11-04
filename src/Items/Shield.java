@@ -1,4 +1,6 @@
-package textadv01;
+package Items;
+
+import Items.Armor;
 
 public class Shield extends Armor {
     private String[] names = {"Wooden Shield", "Leather Shield", "Decaying Shield", "Copper Shield"};

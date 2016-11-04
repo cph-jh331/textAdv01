@@ -1,5 +1,5 @@
 
-package textadv01;
+package Items;
 
 public class HorseShoe extends Weapons{
     private String[] names = {"Lucky Horse Shoe", "Unlucky Horse Shoe", "Gold Horse Shoe"};

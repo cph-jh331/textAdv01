@@ -1,6 +1,7 @@
 package textadv01;
 
 public class Controller {
+    
 
     private RoomList rl = new RoomList();
     private Player pl = new Player();
@@ -45,10 +46,10 @@ public class Controller {
                     st.roomDir();
                     st.textDivider2();
                     room.goTo();
-                    com.FightEnemy();
                     st.textDivider();
                     st.roomDescription(pl.getRoom());
                     st.textDivider2();
+                    com.FightEnemy();
                     break;
 
                 case "look":

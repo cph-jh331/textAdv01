@@ -9,10 +9,8 @@ public class Text {
     private RoomList rl;
     private Scanner scan = new Scanner(System.in);
     private String input;
-    private String items = "\t";
 
     public Text() {
-
     }
 
     public Text(RoomList r, Room ro, Player p) {
@@ -103,7 +101,7 @@ public class Text {
                 + "\ttype in any of these commands:\n"
                 + "----------------------------------------------------------------------------\n"
                 + "- move: to move the next room\n"
-                + "- look: to look for valuables\n"                
+                + "- look: to look for valuables\n"
                 + "- take all: to take all the valuables\n"
                 + "- inv: to check inventory\n"
                 + "- equip: to equip an item\n"
@@ -145,9 +143,12 @@ public class Text {
     }
 
     public void theEnd() {
-        System.out.println(pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()) + "\n"
-                + ""
-                + "\tand ended the game with: " + pl.getGold() + " gold pieces!");
+        String end = "";
+        if (pl.getHealth() > 0) {
+            end = "\t" + pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()) + "\n";
+        }
+        end += "\t" + pl.getName() + " ended the game with: " + pl.getGold() + " gold pieces!";
+        System.out.println(end);
     }
 
     public void trapThere(String playerName, String trapName) {
@@ -232,8 +233,8 @@ public class Text {
     }
 
     public void alreadyEquiped(String itemName) {
-        System.out.println("----------------------------------------------------------------------------\n" 
-                +"\t" + itemName + " is already equiped!\n"
+        System.out.println("----------------------------------------------------------------------------\n"
+                + "\t" + itemName + " is already equiped!\n"
                 + "----------------------------------------------------------------------------");
 
     }
@@ -254,15 +255,15 @@ public class Text {
                 + "\tReplacing " + equipedItem + ".\n"
                 + "----------------------------------------------------------------------------");
     }
-    
-    public void cannotEquip(String itemName, String bodyName){
-        
+
+    public void cannotEquip(String itemName, String bodyName) {
+
         System.out.println("----------------------------------------------------------------------------\n"
                 + "\tYou cannot put " + itemName + " on your " + bodyName + ".\n"
                 + "----------------------------------------------------------------------------");
     }
-    
-    public void enterADamnNumber(){
+
+    public void enterADamnNumber() {
         System.out.println("----------------------------------------------------------------------------"
                 + "\n\tYou need to write a number\n"
                 + "----------------------------------------------------------------------------");

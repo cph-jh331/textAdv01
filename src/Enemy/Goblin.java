@@ -1,4 +1,6 @@
-package textadv01;
+package Enemy;
+
+import Enemy.Enemies;
 
 public class Goblin extends Enemies {
 

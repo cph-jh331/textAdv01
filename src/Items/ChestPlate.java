@@ -1,4 +1,6 @@
-package textadv01;
+package Items;
+
+import Items.Armor;
 
 public class ChestPlate extends Armor {
     private String[] names = {"Wooden Chest Plate", "Rusty Chest Plate", "Awkward Chest Plate", "Copper Chest Plate"};

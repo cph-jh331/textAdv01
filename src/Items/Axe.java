@@ -1,4 +1,4 @@
-package textadv01;
+package Items;
 
 public class Axe extends Weapons {
     

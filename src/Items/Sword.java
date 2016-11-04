@@ -1,4 +1,4 @@
-package textadv01;
+package Items;
 
 public class Sword extends Weapons {
     private String[] swordNames = {"Rusty Sword", "Gold Sword", "Cobber Sword", "Bend Sword"};

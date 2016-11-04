@@ -1,4 +1,4 @@
-package textadv01;
+package Enemy;
 
 public class Enemies {
 

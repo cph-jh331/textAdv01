@@ -1,5 +1,6 @@
 package textadv01;
 
+import Enemy.SlutBoss;
 import java.util.ArrayList;
 
 public class RoomList {

@@ -1,5 +1,6 @@
 package textadv01;
 
+import Items.Item;
 import java.util.ArrayList;
 
 public class Equip extends Inventory2 {
