@@ -106,7 +106,7 @@ public class Text {
                 + "- look: to look for valuables\n"                
                 + "- take all: to take all the valuables\n"
                 + "- inv: to check inventory\n"
-                + "- equip: to equip an item"
+                + "- equip: to equip an item\n"
                 + "- hpot: use a health potion\n"
                 + "- stats: to check your current stats\n"
                 + "- highscore: to check the highscore\n"
@@ -158,9 +158,9 @@ public class Text {
     public void equipWhatToDo(String plInv) {
         String what = ""
                 + "----------------------------------------------------------------------------\n"
-                + "\tWhat item do you want to equip?:\n"
+                + "\tWhat item do you want to equip?\n"
                 + "----------------------------------------------------------------------------"
-                + "" + plInv
+                + "" + plInv + "\n"
                 + "\n>back - to stop equipping.";
 
         System.out.println(what);
@@ -232,31 +232,40 @@ public class Text {
     }
 
     public void alreadyEquiped(String itemName) {
-        System.out.println(itemName + " is already equiped!");
+        System.out.println("----------------------------------------------------------------------------\n" 
+                +"\t" + itemName + " is already equiped!\n"
+                + "----------------------------------------------------------------------------");
 
     }
 
     public void equiping(String itemName, String invToString) {
         String equip = "----------------------------------------------------------------------------\n"
-                + "\t where do you want to equip the " + itemName + "?\n"
+                + "\tWhere do you want to equip the " + itemName + "?\n"
+                + "----------------------------------------------------------------------------"
                 + invToString
                 + "\n----------------------------------------------------------------------------";
         System.out.println(equip);
     }
 
     public void equipReplace(String itemName, String equipedItem, String body) {
-        System.out.println("You equip the " + itemName
-                + " on your " + body + ".\n"
-                + "Replacing " + equipedItem + ".");
+        System.out.println(""
+                + "----------------------------------------------------------------------------\n"
+                + "\tYou equip the " + itemName + " on your " + body + ".\n"
+                + "\tReplacing " + equipedItem + ".\n"
+                + "----------------------------------------------------------------------------");
     }
     
     public void cannotEquip(String itemName, String bodyName){
         
-        System.out.println("You cannot put " + itemName + " on your " + bodyName + ".");
+        System.out.println("----------------------------------------------------------------------------\n"
+                + "\tYou cannot put " + itemName + " on your " + bodyName + ".\n"
+                + "----------------------------------------------------------------------------");
     }
     
     public void enterADamnNumber(){
-        System.out.println("You need to write a number");
+        System.out.println("----------------------------------------------------------------------------"
+                + "\n\tYou need to write a number\n"
+                + "----------------------------------------------------------------------------");
     }
 
     /**

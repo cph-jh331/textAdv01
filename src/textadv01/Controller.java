@@ -55,47 +55,11 @@ public class Controller {
                     st.startsLooking(rl.getRoomList().get(pl.getRoom()).getInv().toString());
                     break;
 
-                //checks the gold amount of the current room.
-//                case "look for gold":
-//                    st.textDivider2();
-//                    st.lookingForGold();
-//                    st.goldCheck();
-//                    st.textDivider2();
-//                    break;
-//
-//                case "look for items":
-//                    st.textDivider2();
-//                    st.lookingForItem();
-//                    st.itemCheck();
-//                    st.textDivider2();
-//                    break;
                 case "take all":
                     st.out(pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()));
                     rl.getRoomList().get(pl.getRoom()).setTreasure(false);
                     trapCtrl.gloriousTrap();
                     break;
-
-                //prints takes gold from the room and adds it to player gold.
-//                case "take all":
-//                    st.textDivider2();
-//                    st.takesTheGold();
-//                    pl.setGold(pl.getGold() + rl.getRoomList().get(pl.getRoom()).getGold());
-//                    rl.getRoomList().get(pl.getRoom()).setGold(0);
-//                    st.takesTheItem();
-//                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-//                        inv.addToInv();
-//                        rl.getRoomList().get(pl.getRoom()).setrItem(null);
-//                    }
-////                      OLD INVENTORY SYSTEM OF OLD.
-////                    if (rl.getRoomList().get(pl.getRoom()).getrItem() != null) {
-////                        pl.setDmg(pl.getDmg() + rl.getRoomList().get(pl.getRoom()).getrItem().getDmg());
-////                        pl.setDef(pl.getDef() + rl.getRoomList().get(pl.getRoom()).getrItem().getDef());
-////                        pl.setHealth(pl.getHealth() + rl.getRoomList().get(pl.getRoom()).getrItem().getHpIncr());
-////                    }
-//                    st.textDivider2();
-//                    trapCtrl.gloriousTrap();
-//
-//                    break;
                 //prints what in the player inventory
                 case "inv":
                     st.textDivider2();
