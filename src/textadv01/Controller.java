@@ -5,12 +5,12 @@ public class Controller {
 
     private RoomList rl = new RoomList();
     private Player pl = new Player();
-    private Room room = new Room(rl, pl);    
     private Trap trap = new Trap();
+    private Highscore hs = new Highscore();
+    private Room room = new Room(rl, pl);    
+    private Text st = new Text(rl, room, pl);
     private Combat com = new Combat(pl, trap, rl);
     private TrapCtrl trapCtrl = new TrapCtrl(trap, pl, com, rl);
-    private Text st = new Text(rl, room, pl);
-    private Highscore hs = new Highscore();
 
     public void run() {
         hs.readFileToArrays();
