@@ -46,7 +46,7 @@ public class Inventory2 {
         } else {
             taking = "----------------------------------------------------------------------------\n"
                     + "\tNothing to take!";
-        
+
         }
         taking += "\n----------------------------------------------------------------------------";
         return taking;
@@ -55,7 +55,7 @@ public class Inventory2 {
     public void addRandomAxe(ArrayList<Item> anyInv, int numb) {
         int i = 1;
         while (i <= numb) {
-            System.out.println("adding a axe");
+
             Axe axe = new Axe("Meh", "Desc", true, 22, numb);
             axe.setName(getRand().RandomItemName(axe.getNames()));
             axe.setDmg(getRand().randomDmgStat(15));
@@ -66,11 +66,11 @@ public class Inventory2 {
             }
         }
     }
-    
-        public void addRandomHorseShoe(ArrayList<Item> anyInv, int numb) {
+
+    public void addRandomHorseShoe(ArrayList<Item> anyInv, int numb) {
         int i = 1;
         while (i <= numb) {
-            System.out.println("adding a axe");
+
             HorseShoe horseShoe = new HorseShoe("Meh", "Desc", true, 22, numb);
             horseShoe.setName(getRand().RandomItemName(horseShoe.getNames()));
             horseShoe.setDmg(getRand().randomDmgStat(15));
@@ -199,7 +199,6 @@ public class Inventory2 {
         while (i <= numb) {
             Shield shield = new Shield("shield", "some shield", true, 25, 25, numb);
             shield.setName(getRand().RandomItemName(shield.getNames()));
-            System.out.println("adding shield");
             anyInv.add(shield);
             i++;
             if (i > numb) {
@@ -288,12 +287,10 @@ public class Inventory2 {
         }
         if (allready == true) {
             anyInv.get(i).setNumb(anyInv.get(i).getNumb() + numb);
-            System.out.println(anyInv.get(i).getNumb() + "!!!!!!!!!");
-            System.out.println("adding to gold");
 
         } else {
             anyInv.add(gold);
-            System.out.println("Adding new Gold object");
+
         }
     }
 

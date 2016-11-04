@@ -84,7 +84,7 @@ public class Equip extends Inventory2 {
                                 break;
                             }
                         } else {
-                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);                            
+                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);
                         }
                         break;
                     case 1:
@@ -104,7 +104,7 @@ public class Equip extends Inventory2 {
                                 break;
                             }
                         } else {
-                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);                            ;
+                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);;
                         }
                         break;
                     case 2:
@@ -124,7 +124,7 @@ public class Equip extends Inventory2 {
                                 break;
                             }
                         } else {
-                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);                            
+                            text.cannotEquip(inv.get(index).getName(), whereBody[inputNumb]);
                         }
                         break;
                     default:

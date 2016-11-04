@@ -13,9 +13,7 @@ public class Controller {
 
     public void run() {
         hs.readFileToArrays();
-        pl.getInv().populatePlayerInv();
-        System.out.println(pl.getInv().toString());
-        System.out.println(pl.getEquip().invToString(pl.getInventory()));
+        pl.getInv().populatePlayerInv();        
         rl.createRooms();
         st.introArt();
 

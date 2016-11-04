@@ -4,7 +4,7 @@ public class Combat {
 
     private Randomness rand = new Randomness();
     private Text text = new Text();
-    private RoomList rl;    
+    private RoomList rl;
 
     private Player pl;
     private Trap trap;
@@ -21,7 +21,9 @@ public class Combat {
 
     public void FightEnemy() {
         if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null) {
-            text.out("An evil " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " appeared!");
+            text.out("----------------------------------------------------------------------------\n"
+                    + "\tAn evil " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " appeared!"
+            + "\n----------------------------------------------------------------------------");
             text.out("what to do:\n"
                     + "> attack - to attack.\n"
                     + "> defend - to try to block.\n"
@@ -60,37 +62,46 @@ public class Combat {
 
             }
             if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null && rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() <= 0) {
-                text.out("You defeated " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName());
+                text.out("\tYou defeated " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() +"\n");
+                String enemyName = rl.getRoomList().get(pl.getRoom()).getrEnemies().getName();
                 rl.getRoomList().get(pl.getRoom()).setrEnemies(null);
+                if (checkPotDrop() == true) {
+                    addPot();
+                    text.droppedPot(enemyName);
+                } else {
+                    text.droppedNothing(enemyName);
+                }
             }
         }
     }
 
     public void hpOverview() {
-        text.out(pl.getName() + " HP: " + pl.getHealth() + "\n"
-                + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
-                + " HP: " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth());
-
+        text.out("\t"+pl.getName() + " HP: " + pl.getHealth() + "\n"
+                + "\t"+rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
+                + " HP: " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth()
+        +"\n----------------------------------------------------------------------------");
     }
 
     public void enemyAttack() {
-        text.out("Enemy hits you for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
+        text.out("\tEnemy hits you for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg()
+                +"\n----------------------------------------------------------------------------");
         pl.setHealth(pl.getHealth() - rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
 
     }
 
     public String playerAttack() {
-        String attack = "";
+        String attack = "----------------------------------------------------------------------------\n";
 
         if (pl.getEquip().getBody().get(0).getName().equalsIgnoreCase("Nothing") && pl.getEquip().getBody().get(1).getName().equalsIgnoreCase("Nothing")) {
-            attack = "" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " with his bare hands,\n"
-                    + "doing " + pl.getDmg() + " damage to it!";
+            attack += "\t" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " with his bare hands,\n"
+                    + "\tdoing " + pl.getDmg() + " damage to it!";
         } else if (pl.getEquip().getBody().get(0).getDmg() > 0 || pl.getEquip().getBody().get(1).getDmg() > 0) {
-            attack = "" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
-                    + " with a " + pl.getEquip().getBody().get(0).getName() 
+            attack += "\t" + pl.getName() + " attacks the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
+                    + " with a " + pl.getEquip().getBody().get(0).getName()
                     + " and a " + pl.getEquip().getBody().get(1).getName() + ",\n"
-                    + "doing " + pl.getDmg() + " to the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "!";
+                    + "\tdoing " + pl.getDmg() + " to the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "!";
         }
+        
         rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
         return attack;
 
@@ -98,17 +109,23 @@ public class Combat {
 
     public void block() {
         if (pl.getDef() >= rand.blockChance()) {
-            text.out("You blocked the attack!");
+            text.out("----------------------------------------------------------------------------\n"
+                    + "\tYou blocked the attack!\n"
+                    + "----------------------------------------------------------------------------");
         } else {
             pl.setHealth(pl.getHealth() - rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
-            text.out("You failed at blocking the attack!\n"
-                    + "Enemy hits yout for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
+            text.out("----------------------------------------------------------------------------\n"
+                    + "\tYou failed at blocking the attack!\n"
+                    + "\tEnemy hits yout for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg()
+                    + "\n----------------------------------------------------------------------------");
         }
 
     }
 
     public void flee() {
-        text.out("You bravely run away!\n");
+        text.out("----------------------------------------------------------------------------\n"
+                + "\tYou bravely run away!\n"
+                + "----------------------------------------------------------------------------");
         pl.setRoom(pl.getPreviousRoom());
 
     }
