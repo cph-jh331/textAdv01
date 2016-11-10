@@ -123,6 +123,6 @@ public class RoomList {
      */
     public ArrayList<Room> getRoomList() {
         return roomList;
-    }
+    }    
 
 }

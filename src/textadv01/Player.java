@@ -28,11 +28,11 @@ public class Player {
     }
 
     public ArrayList<Item> getInventory() {
-        return inv.getInv();
+        return inv.getInventory();
     }
 
     public int getGold() {
-        return inv.getGold(inv.getInv());
+        return inv.getGold(inv.getInventory());
     }
 
     /**
@@ -43,7 +43,7 @@ public class Player {
     }
 
     public int getNumberOfHpot() {
-        return inv.getNumberOfItem(inv.getInv(), "health potion");
+        return inv.getNumberOfItem(inv.getInventory(), "health potion");
     }
     
     public int getHealFromPot(){

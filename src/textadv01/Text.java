@@ -63,7 +63,9 @@ public class Text {
     }
 
     public void roomDescription(int roomnr) {
-        System.out.println("\t" + pl.getName() + rl.getRoomList().get(roomnr).getRoomDesc());
+        System.out.println("**************************************************************************\n"
+                + "\t" + pl.getName() + rl.getRoomList().get(roomnr).getRoomDesc()
+                + "\n**************************************************************************");
     }
 
     public void lookingForGold() {
@@ -98,6 +100,7 @@ public class Text {
 
     public void whatToDo() {
         System.out.println(""
+                + "----------------------------------------------------------------------------\n"
                 + "\ttype in any of these commands:\n"
                 + "----------------------------------------------------------------------------\n"
                 + "- move: to move the next room\n"
@@ -114,15 +117,20 @@ public class Text {
     }
 
     public void roomDir() {
-        System.out.println("\t" + pl.getName() + " moves around the room to find out\n"
+        System.out.println("----------------------------------------------------------------------------\n"
+                + "\t" + pl.getName() + " moves around the room to find out\n"
                 + "\twhat direction one can go from here...");
         System.out.println(room.roomDirection());
-        System.out.println("\n- back: to stay in the current room.");
+        System.out.println("\n- back: to stay in the current room."
+                + "\n----------------------------------------------------------------------------");
     }
 
     public void checkInventory(String weaponList) {
-        System.out.println("\t" + pl.getName() + " currently have:\n"
-                + weaponList);
+        System.out.println(""
+                + "\n----------------------------------------------------------------------------"
+                + "\t" + pl.getName() + " currently have:\n"
+                + weaponList
+                + "\n----------------------------------------------------------------------------");
 
     }
 
@@ -145,7 +153,7 @@ public class Text {
     public void theEnd() {
         String end = "";
         if (pl.getHealth() > 0) {
-            end = "\t" + pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInventoryList(), pl.getInventory(), pl.getName()) + "\n";
+            end = "\t" + pl.getInv().takeAll(rl.getRoomList().get(pl.getRoom()).getInvItem(), pl.getInventory(), pl.getName()) + "\n";
         }
         end += "\t" + pl.getName() + " ended the game with: " + pl.getGold() + " gold pieces!";
         System.out.println(end);

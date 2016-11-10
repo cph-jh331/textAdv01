@@ -68,7 +68,7 @@ public class Inventory2 {
             Axe axe = new Axe("Meh", "Desc", true, 22, numb);
             axe.setName(getRand().RandomItemName(axe.getNames()));
             axe.setDmg(getRand().randomDmgStat(15));
-            getInv().add(axe);
+            getInventory().add(axe);
             i++;
             if (i > numb) {
 
@@ -83,7 +83,7 @@ public class Inventory2 {
             HorseShoe horseShoe = new HorseShoe("Meh", "Desc", true, 22, numb);
             horseShoe.setName(getRand().RandomItemName(horseShoe.getNames()));
             horseShoe.setDmg(getRand().randomDmgStat(15));
-            getInv().add(horseShoe);
+            getInventory().add(horseShoe);
             i++;
             if (i > numb) {
 
@@ -94,7 +94,7 @@ public class Inventory2 {
     public void addSpecificAxe(ArrayList<Item> taker, String name, String desc, Boolean acq, int numb, int dmg) {
         int i = 1;
         while (i <= numb) {
-            Axe axe = new Axe("Meh", "Desc", true, 22, numb);
+            Axe axe = new Axe(name, desc, true, numb, dmg);
             axe.setDmg(dmg);
             taker.add(axe);
             i++;
@@ -392,7 +392,7 @@ public class Inventory2 {
     /**
      * @return the inv
      */
-    public ArrayList<Item> getInv() {
+    public ArrayList<Item> getInventory() {
         return inv;
     }
 
@@ -415,6 +415,7 @@ public class Inventory2 {
         return "";
     }
 
+    @Override
     public String toString() {
 
         String li = "";

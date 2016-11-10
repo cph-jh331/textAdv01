@@ -1,5 +1,5 @@
+Hest: 14002
 Unknown: 10000
 Hest: 9669
 Hest: 8739
 Hest: 7662
-Unknown: 7000

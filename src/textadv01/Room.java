@@ -6,18 +6,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Room {
-    
 
     private RoomInv inv = new RoomInv();
-
     private Text out = new Text();
     private RoomList rl;
     private Player pl;
-
     private StringBuilder sb = new StringBuilder();
-
     private Scanner scan = new Scanner(System.in);
-
     private String roomDesc;
     private Enemies rEnemies = null;
     private int north;
@@ -173,9 +168,17 @@ public class Room {
     public RoomInv getInv() {
         return inv;
     }
+
+    public String getInvToString() {
+        return rl.getRoomList().get(pl.getRoom()).getInv().toString();
+    }
+
+    public ArrayList<Item> getCurrentRoomInv() {
+        return rl.getRoomList().get(pl.getRoom()).getInv().getInventory();
+    }    
     
-    public ArrayList<Item> getInventoryList(){
-        return inv.getInv();
+    public ArrayList<Item> getInvItem(){
+        return inv.getInventory();
     }
 
     /**

@@ -185,7 +185,7 @@ public class Combat {
 
     //adds a health pot to player.
     public void addPot() {
-        rl.getRoomList().get(pl.getRoom()).getInv().AddHealthPot(rl.getRoomList().get(pl.getRoom()).getInventoryList(), 1);
+        rl.getRoomList().get(pl.getRoom()).getInv().AddHealthPot(rl.getRoomList().get(pl.getRoom()).getInvItem(), 1);
         rl.getRoomList().get(pl.getRoom()).setTreasure(true);
     }
 
