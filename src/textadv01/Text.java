@@ -127,7 +127,7 @@ public class Text {
 
     public void checkInventory(String weaponList) {
         System.out.println(""
-                + "\n----------------------------------------------------------------------------"
+                + "\n----------------------------------------------------------------------------\n"
                 + "\t" + pl.getName() + " currently have:\n"
                 + weaponList
                 + "\n----------------------------------------------------------------------------");
@@ -221,12 +221,14 @@ public class Text {
     }
 
     public void droppedPot(String enemyName) {
-        String dropPot = "\t" + enemyName + " dropped a health potion!";
+        String dropPot = "\t" + enemyName + " dropped a health potion!\n"
+                + "----------------------------------------------------------------------------";
         System.out.println(dropPot);
     }
 
     public void droppedNothing(String enemyName) {
-        String droppedNothing = "\t" + enemyName + " did not drop anything.";
+        String droppedNothing = "\t" + enemyName + " did not drop anything.\n"
+                + "----------------------------------------------------------------------------";
         System.out.println(droppedNothing);
     }
 
@@ -237,7 +239,7 @@ public class Text {
     public void notEquiping() {
         System.out.println("----------------------------------------------------------------------------\n"
                 + "\tYou decided to not equip anything.\n"
-                + "----------------------------------------------------------------------------\n");
+                + "----------------------------------------------------------------------------");
     }
 
     public void alreadyEquiped(String itemName) {

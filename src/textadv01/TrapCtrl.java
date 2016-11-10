@@ -73,8 +73,7 @@ public class TrapCtrl {
                     text.droppedPot(trap.getName());
                 } else {
                     text.droppedNothing(trap.getName());
-                }
-                text.textDivider2();
+                }                
             }
         }
     }

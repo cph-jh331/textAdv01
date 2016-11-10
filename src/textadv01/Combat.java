@@ -23,7 +23,7 @@ public class Combat {
         if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null) {
             text.out("----------------------------------------------------------------------------\n"
                     + "\tAn evil " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + " appeared!"
-            + "\n----------------------------------------------------------------------------");
+                    + "\n----------------------------------------------------------------------------");
             text.out("what to do:\n"
                     + "> attack - to attack.\n"
                     + "> defend - to try to block.\n"
@@ -62,7 +62,7 @@ public class Combat {
 
             }
             if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null && rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() <= 0) {
-                text.out("\tYou defeated " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() +"\n");
+                text.out("\tYou defeated " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "\n");
                 String enemyName = rl.getRoomList().get(pl.getRoom()).getrEnemies().getName();
                 rl.getRoomList().get(pl.getRoom()).setrEnemies(null);
                 if (checkPotDrop() == true) {
@@ -76,15 +76,15 @@ public class Combat {
     }
 
     public void hpOverview() {
-        text.out("\t"+pl.getName() + " HP: " + pl.getHealth() + "\n"
-                + "\t"+rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
+        text.out("\t" + pl.getName() + " HP: " + pl.getHealth() + "\n"
+                + "\t" + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName()
                 + " HP: " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth()
-        +"\n----------------------------------------------------------------------------");
+                + "\n----------------------------------------------------------------------------");
     }
 
     public void enemyAttack() {
         text.out("\tEnemy hits you for " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg()
-                +"\n----------------------------------------------------------------------------");
+                + "\n----------------------------------------------------------------------------");
         pl.setHealth(pl.getHealth() - rl.getRoomList().get(pl.getRoom()).getrEnemies().getDmg());
 
     }
@@ -101,7 +101,7 @@ public class Combat {
                     + " and a " + pl.getEquip().getBody().get(1).getName() + ",\n"
                     + "\tdoing " + pl.getDmg() + " to the " + rl.getRoomList().get(pl.getRoom()).getrEnemies().getName() + "!";
         }
-        
+
         rl.getRoomList().get(pl.getRoom()).getrEnemies().setHealth(rl.getRoomList().get(pl.getRoom()).getrEnemies().getHealth() - pl.getDmg());
         return attack;
 

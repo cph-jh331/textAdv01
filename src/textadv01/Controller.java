@@ -49,9 +49,9 @@ public class Controller {
                     break;
                 //transfers the rooms items to the player.
                 case "take all":
+                    trapCtrl.gloriousTrap();
                     st.out(pl.getInv().takeAll(room.getCurrentRoomInv(), pl.getInventory(), pl.getName()));
                     rl.getRoomList().get(pl.getRoom()).setTreasure(false);
-                    trapCtrl.gloriousTrap();
                     break;
                 //prints what in the player inventory
                 case "inv":
@@ -98,8 +98,7 @@ public class Controller {
 
             }
         }
-        if (rl.getRoomList().get(pl.getRoom()).theEnd() == true) {
-            st.textDivider2();
+        if (rl.getRoomList().get(pl.getRoom()).theEnd() == true) {            
             st.theEnd();
 
         } else if (pl.getHealth() <= 0 && trap.hasKilledPlayer() == true) {

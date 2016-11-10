@@ -108,7 +108,7 @@ public class Testing {
     public static String moveToNextRoom() {
 
         ArrayList<Room> rl = new ArrayList<>();
-        Player pl = new Player();;
+        Player pl = new Player();
         pl.setName("Ged");
 
         Room r = new Room(" stands inside the entrance of the Barrow.\n"
