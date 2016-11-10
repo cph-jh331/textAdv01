@@ -18,6 +18,10 @@ public class Combat {
         this.pl = pl;
         this.trap = trap;
     }
+    
+    public Combat (Player pl){
+        this.pl = pl;
+    }
 
     public void FightEnemy() {
         if (rl.getRoomList().get(pl.getRoom()).getrEnemies() != null) {

@@ -1,6 +1,7 @@
 package textadv01;
 
 import java.util.ArrayList;
+import Enemy.SlutBoss;
 
 public class Testing {
 
@@ -189,7 +190,7 @@ public class Testing {
         pl.getInv().addSpecificAxe(pl.getInventory(), "Axe", "axe", true, 1, 25);
         int index = 1;
 
-        boolean invalid = true;       
+        boolean invalid = true;
         while (invalid == true) {
 
             String input = "1";
@@ -281,6 +282,71 @@ public class Testing {
             candoit = false;
         }
         return candoit;
+    }
+
+    public static String testFightEnemy() {
+        ArrayList<Room> rl = new ArrayList<>();
+        Player pl = new Player();
+        Trap trap = new Trap();
+        Combat com = new Combat(pl);
+        pl.setName("Ged");
+        String input = "attack";
+
+        Room r = new Room(" stands inside the entrance of the Barrow.\n"
+                + "\tThe entrance is in decay, but maybe there is\n"
+                + "\tsomething valuable in here..."
+                + ""
+                + "", 1, -1, -1, -1, false, true, false, new SlutBoss("Slutty Boss", 100, 100));
+        rl.add(r);
+        pl.setRoom(0);
+
+        if (rl.get(pl.getRoom()).getrEnemies() != null) {
+
+            while (rl.get(pl.getRoom()).getrEnemies() != null && rl.get(pl.getRoom()).getrEnemies().getHealth() > 0 && pl.getHealth() > 0) {
+
+                
+
+                switch (input) {
+
+                    case "attack":
+
+                        if (rl.get(pl.getRoom()).getrEnemies().getHealth() > 0) {
+                            
+                        }
+                        
+                        return "Player attacked";
+
+                    case "defend":
+                        com.block();
+                        com.hpOverview();
+                        break;
+                    case "hpot":
+                        com.useHealthPot();
+                        com.hpOverview();
+                        break;
+                    case "run away":
+                        com.flee();
+                        break;
+                    default:
+                        com.enemyAttack();
+                        com.hpOverview();
+                        break;
+                }
+
+            }
+            if (rl.get(pl.getRoom()).getrEnemies() != null && rl.get(pl.getRoom()).getrEnemies().getHealth() <= 0) {
+                String enemyName = rl.get(pl.getRoom()).getrEnemies().getName();
+                rl.get(pl.getRoom()).setrEnemies(null);
+                if (com.checkPotDrop() == true) {
+                    com.addPot();
+                    text.droppedPot(enemyName);
+                } else {
+                    text.droppedNothing(enemyName);
+                }
+            }
+
+        }
+        return "Dieded";
     }
 
 }

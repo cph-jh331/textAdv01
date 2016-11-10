@@ -110,4 +110,17 @@ public class TestingTest {
     }
 
 
+    /**
+     * Test of testFightEnemy method, of class Testing.
+     */
+    @Test
+    public void testTestFightEnemy() {
+        System.out.println("testFightEnemy");
+        String expResult = "Player attacked";
+        String result = Testing.testFightEnemy();
+        assertEquals(expResult, result);       
+        
+    }
+
+
 }
